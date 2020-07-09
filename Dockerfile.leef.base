@@ -1,0 +1,20 @@
+FROM rocker/r-base:4.0.2
+
+RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+  libxml2-dev \
+  libcairo2-dev \
+  libsqlite-dev \
+  libtiff-dev \
+  libssh2-1-dev \
+  libssl-dev \ 
+  && R -e "install.packages('BiocManager')" \
+  && install2.r --error \
+    --deps TRUE \
+    drat
+##    dplyr \
+##    ggplot2 \
+##    devtools \
+##    formatR \
+##    remotes \
+##    selectr
+
