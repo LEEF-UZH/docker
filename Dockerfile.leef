@@ -1,3 +1,0 @@
-FROM leef.base
-
-RUN r -e "drat::addRepo( 'LEEF-UZH' )
