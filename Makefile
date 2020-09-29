@@ -4,10 +4,18 @@
 leef.base: .PHONY
 	docker build --tag leef.base:latest leef.base
 
+leef.base.force: .PHONY
+	docker build --no-cache	--tag leef.base:latest leef.base
+
 leef: .PHONY
 	docker build --tag leef:latest leef
-
+	
+leef.force: .PHONY
+	docker build --no-cache	--tag leef:latest leef
+	
 build: leef
+
+build.force: leef.force
 	
 ##### run #####
 
