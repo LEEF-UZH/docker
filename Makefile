@@ -1,33 +1,39 @@
 
 ##### build #####
 
-build.leef.base:
-	docker build -t leef.base - < Dockerfile.leef.base
+leef.base: .PHONY
+	docker build --tag leef.base:latest leef.base
 
-build.leef: build.leef.base
-	docker build -t leef - < Dockerfile.leef
+leef: .PHONY
+	docker build --tag leef:latest leef
 
-build: build.leef
+build: leef
 	
-##### runn #####
+##### run #####
 
 run.leef.base:
-	docker run --rm -ti leef.base
+	docker run \
+	--rm \
+	-p 8787:8787 \
+	-e PASSWORD=none \
+	-ti \
+	leef
+	
+run: run.leef
 
 run.leef:
-	docker run --rm -ti leef
-
-run: run.leef
+	docker run \
+	--rm \
+	-p 8787:8787 \
+	-e PASSWORD=none \
+	-v ~/LEEF/000.NewData:/home/rstudio/LEEF/000.NewData \
+	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
+	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
+	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	-ti leef \
 	
-# run: build
-#	docker run -d -p 8787:8787 \
-#		-e DISABLE_AUTH=true \
-#		--name='gapminder-01-ct' \
-#		-v ${HOME}:/home/rstudio/hostdata \
-#		gapminder-01;
-#
-#	sleep 3;
-#	firefox 127.0.0.1:8787;
 
 ##### stop #####
 
@@ -68,3 +74,10 @@ list_targets:
 	@echo
 
 list: list_variables list_targets
+
+.PHONY:
+	@echo "\n\n"
+	@echo "##############################################"
+	@echo "### Building LEEF docker images locally... ###"
+	@echo "##############################################"
+	@echo "\n\n"
