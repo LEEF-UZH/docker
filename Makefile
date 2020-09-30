@@ -27,9 +27,24 @@ run.leef.base:
 	-ti \
 	leef
 	
-run: run.leef
+run: run.leef.rstudio
 
-run.leef:
+run.leef.rstudio:
+	docker run \
+	--rm \
+	-p 8787:8787 \
+	-e PASSWORD=none \
+	-v ~/LEEF/000.NewData:/home/rstudio/LEEF/000.NewData \
+	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
+	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
+	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	-ti leef 
+	
+bash: run.leef.bash
+
+run.leef.bash:
 	docker run \
 	--rm \
 	-p 8787:8787 \
@@ -41,7 +56,22 @@ run.leef:
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	-ti leef \
+	bash
 	
+R: run.leef.R
+run.leef.R:
+	docker run \
+	--rm \
+	-p 8787:8787 \
+	-e PASSWORD=none \
+	-v ~/LEEF/000.NewData:/home/rstudio/LEEF/000.NewData \
+	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
+	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
+	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	-ti leef \
+	R
 
 ##### stop #####
 

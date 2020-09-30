@@ -1,7 +1,7 @@
 FROM leef.base:latest
 
 COPY tools/* /home/rstudio/LEEF/tools/
-
+ 
 RUN    mkdir -p /home/rstudio/LEEF/tools \
 	&& mkdir -p /home/rstudio/LEEF/000.NewData \
     && mkdir -p /home/rstudio/LEEF/0.raw.data \
@@ -23,9 +23,6 @@ RUN    mkdir -p /home/rstudio/LEEF/tools \
     && wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz \
 	&& tar -xf ffmpeg-release-amd64-static.tar.xz --wildcards --strip=1 */ffmpeg
 	
-RUN R -e 'drat::addRepo("LEEF-UZH");install.packages("LEEF")'
+RUN R -e 'drat::addRepo("LEEF-UZH"); install.packages("LEEF")'
 
-
-RUN apt-get update -qq && apt-get -y --no-install-recommends install \
-    openjdk-11-jdk-headless
 

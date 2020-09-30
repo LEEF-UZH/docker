@@ -2,21 +2,21 @@ FROM rocker/rstudio:4.0.2
 
 
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
-  libxml2-dev \
-  libcairo2-dev \
-  libsqlite-dev \
-  libtiff-dev \
-  libssh2-1-dev \
-  libssl-dev \
-  libpq-dev
-   
+  	libxml2-dev \
+  	libcairo2-dev \
+  	libsqlite-dev \
+  	libtiff-dev \
+  	libssh2-1-dev \
+  	libssl-dev \
+	libpq-dev \
+  	 libcairo2-dev \
+    libxt-dev \
+    openjdk-11-jdk-headless
+    
 RUN R -e "install.packages('BiocManager')" \
     && R -e 'BiocManager::install("flowCore")'  
 
-RUN apt-get update -qq && apt-get -y --no-install-recommends install \
-    libcairo2-dev \
-    libxt-dev
-
+    
 RUN install2.r --error \
     --deps TRUE \
     ps \ 
