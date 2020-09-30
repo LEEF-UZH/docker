@@ -1,4 +1,4 @@
-FROM leef.base:latest
+FROM leefuzh/leef.base:latest
 
 COPY tools/* /home/rstudio/LEEF/tools/
  
