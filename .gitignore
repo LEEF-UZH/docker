@@ -1,1 +1,3 @@
 *.bbprojectd
+
+!leef/tools/ParticleLinker.jar
