@@ -1,6 +1,4 @@
 FROM leefuzh/leef.base:latest
-
-COPY tools/* /home/rstudio/LEEF/tools/
  
 RUN    mkdir -p /home/rstudio/LEEF/tools \
 	&& mkdir -p /home/rstudio/LEEF/000.NewData \
@@ -21,7 +19,10 @@ RUN    mkdir -p /home/rstudio/LEEF/tools \
     && rm ./fiji-linux64.zip \
 	\
     && wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz \
-	&& tar -xf ffmpeg-release-amd64-static.tar.xz --wildcards --strip=1 */ffmpeg
+	&& tar -xf ffmpeg-release-amd64-static.tar.xz --wildcards --strip=1 */ffmpeg \
+	rm ./ffmpeg-release-amd64-static.tar.xz \
+	\
+	wget https://github.com/LEEF-UZH/docker/raw/master/leef/tools/ParticleLinker.jar
 	
 RUN R -e 'drat::addRepo("LEEF-UZH"); install.packages("LEEF")'
 
