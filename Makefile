@@ -1,5 +1,7 @@
 
-##### build #####
+#################################	
+##### build 					#####
+#################################	
 
 leef.base: .PHONY
 	docker build --tag leef.base:latest leef.base
@@ -17,7 +19,10 @@ build: leef
 
 build.force: leef.force
 	
-##### run #####
+	
+#################################	
+##### run	 					#####
+#################################	
 
 run.leef.base:
 	docker run \
@@ -73,24 +78,34 @@ run.leef.R:
 	-ti leef \
 	R
 
-##### stop #####
+#################################	
+##### stop 					#####
+#################################	
 
 stop:
 	docker stop leef
 
-##### start #####
+#################################	
+##### start 					#####
+#################################	
 
 start:
 	docker start leef
+	
+#################################	
+##### remove 					#####
+#################################	
 
-##### remove #####
+remove:r emove.leef.base remove.leef
+remove.leef.base: stop
+	docker rm leef.base
 
-remove: stop
+remove.leef: stop
 	docker rm leef
-
-################
-
-############# Help targets #############
+	
+#################################	
+##### Help targets 				#####
+#################################	
 
 list: list_variables list_targets
 
@@ -113,9 +128,17 @@ list_targets:
 
 list: list_variables list_targets
 
+#################################	
+##### phony	 				#####
+#################################	
+
 .PHONY:
 	@echo "\n\n"
 	@echo "##############################################"
 	@echo "### Building LEEF docker images locally... ###"
 	@echo "##############################################"
 	@echo "\n\n"
+	
+#################################	
+##### the end	 				#####
+#################################	
