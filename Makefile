@@ -9,17 +9,14 @@ leef.base: .PHONY
 leef.base.force: .PHONY
 	docker build --no-cache	--tag leef.base:latest leef.base
 
+build: leef
 leef: .PHONY
 	docker build --tag leef:latest leef
 	
+build.force: leef.force
 leef.force: .PHONY
 	docker build --no-cache	--tag leef:latest leef
-	
-build: leef
-
-build.force: leef.force
-	
-	
+		
 #################################	
 ##### run	 					#####
 #################################	
@@ -33,7 +30,6 @@ run.leef.base:
 	leef
 	
 run: run.leef.rstudio
-
 run.leef.rstudio:
 	docker run \
 	--rm \
@@ -45,10 +41,10 @@ run.leef.rstudio:
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	--memory-swap=-1 \
 	-ti leef 
 	
 bash: run.leef.bash
-
 run.leef.bash:
 	docker run \
 	--rm \
@@ -60,6 +56,7 @@ run.leef.bash:
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	--memory-swap=-1 \
 	-ti leef \
 	bash
 	
@@ -75,6 +72,7 @@ run.leef.R:
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	--memory-swap=-1 \
 	-ti leef \
 	R
 
@@ -86,14 +84,14 @@ stop:
 	docker stop leef
 
 #################################	
-##### start 					#####
+##### start 				#####
 #################################	
 
 start:
 	docker start leef
 	
 #################################	
-##### remove 					#####
+##### remove 				#####
 #################################	
 
 remove:r emove.leef.base remove.leef
@@ -104,7 +102,7 @@ remove.leef: stop
 	docker rm leef
 	
 #################################	
-##### Help targets 				#####
+##### Help targets 			#####
 #################################	
 
 list: list_variables list_targets
@@ -140,5 +138,5 @@ list: list_variables list_targets
 	@echo "\n\n"
 	
 #################################	
-##### the end	 				#####
+##### the end	 			#####
 #################################	
