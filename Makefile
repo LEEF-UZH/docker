@@ -4,24 +4,25 @@
 #################################	
 
 leef.base: .PHONY
-	docker build --tag leef.base:latest leef.base
+	docker build --tag leefuzh/leef.base:latest leef.base
 
 leef.base.force: .PHONY
-	docker build --no-cache	--tag leef.base:latest leef.base
+	docker build --no-cache	--tag leefuzh/leef.base:latest leef.base
 
 build: leef
 leef: .PHONY
-	docker build --tag leef:latest leef
+	docker build --tag leefuzh/leef:latest leef
 	
 build.force: leef.force
 leef.force: .PHONY
-	docker build --no-cache	--tag leef:latest leef
+	docker build --no-cache	--tag leefuzh/leef:latest leef
 	
 	
 #################################	
 ##### pull 					#####
 #################################	
 
+update: pull
 pull:
 	docker pull leefuzh/leef
 		
@@ -35,7 +36,7 @@ run.leef.base:
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	-ti \
-	leef
+	leefuzh/leef
 	
 run: run.leef.rstudio
 run.leef.rstudio:
@@ -50,7 +51,8 @@ run.leef.rstudio:
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	--memory-swap=-1 \
-	-ti leef 
+	-ti \
+	leefuzh/leef 
 	
 bash: run.leef.bash
 run.leef.bash:
@@ -65,7 +67,8 @@ run.leef.bash:
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	--memory-swap=-1 \
-	-ti leef \
+	-ti \
+	leefuzh/leef \
 	bash
 	
 R: run.leef.R
@@ -81,7 +84,8 @@ run.leef.R:
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	--memory-swap=-1 \
-	-ti leef \
+	-ti \
+	leefuzh/leef \
 	R
 
 #################################	
@@ -89,14 +93,14 @@ run.leef.R:
 #################################	
 
 stop:
-	docker stop leef
+	docker stop leefuzh/leef
 
 #################################	
 ##### start 				#####
 #################################	
 
 start:
-	docker start leef
+	docker start leefuzh/leef
 	
 #################################	
 ##### remove 				#####
@@ -104,10 +108,21 @@ start:
 
 remove:r emove.leef.base remove.leef
 remove.leef.base: stop
-	docker rm leef.base
+	docker image rm leefuzh/leef.base
 
 remove.leef: stop
-	docker rm leef
+	docker image rm leefuzh/leef
+	
+#################################	
+##### phony	 				#####
+#################################	
+
+.PHONY:
+	@echo "\n\n"
+	@echo "##############################################"
+	@echo "### Building LEEF docker images locally... ###"
+	@echo "##############################################"
+	@echo "\n\n"
 	
 #################################	
 ##### Help targets 			#####
@@ -134,17 +149,6 @@ list_targets:
 
 list: list_variables list_targets
 
-#################################	
-##### phony	 				#####
-#################################	
-
-.PHONY:
-	@echo "\n\n"
-	@echo "##############################################"
-	@echo "### Building LEEF docker images locally... ###"
-	@echo "##############################################"
-	@echo "\n\n"
-	
 #################################	
 ##### the end	 			#####
 #################################	
