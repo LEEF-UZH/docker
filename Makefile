@@ -9,7 +9,7 @@ dirs:
 	mkdir -p ~/LEEF/2.extracted.data \ 
 	mkdir -p ~/LEEF/3.archived.data \ 
    	mkdir -p ~/LEEF/9.backend \
-   	mkdir -p ~/LEEF/pipeline \
+   	mkdir -p ~/LEEF/pipeline
 
 #################################	
 ##### build 				#####
