@@ -109,7 +109,6 @@ run.leef.R:
 
 pipeline: run.pipeline
 run.pipeline:
-	docker cp ./leef/run.pipeline:/home/rstudio/run.pipeline
 	docker run \
 	--rm \
 	-p 8787:8787 \
