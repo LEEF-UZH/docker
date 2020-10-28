@@ -1,5 +1,5 @@
-#!/usr/local/bin/env r
-setwd("~rstudio/LEEF")
+#!/usr/bin/env r
+setwd("/home/rstudio/LEEF")
 
 options(mc.cores = parallel::detectCores() - 1)
 
