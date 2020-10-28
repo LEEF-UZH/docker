@@ -2,6 +2,19 @@
 ##### build 				#####
 #################################	
 
+dirs:
+	mkdir -p ~/LEEF/000.NewData \
+	mkdir -p ~/LEEF/0.raw.data \
+	mkdir -p ~/LEEF/1.pre-processed.data \ 
+	mkdir -p ~/LEEF/2.extracted.data \ 
+	mkdir -p ~/LEEF/3.archived.data \ 
+   	mkdir -p ~/LEEF/9.backend \
+   	mkdir -p ~/LEEF/pipeline \
+
+#################################	
+##### build 				#####
+#################################	
+
 leef.base: .PHONY
 	docker build --tag leefuzh/leef.base:latest leef.base
 
