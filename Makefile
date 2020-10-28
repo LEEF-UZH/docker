@@ -1,6 +1,6 @@
 
 #################################	
-##### build 					#####
+##### build 				#####
 #################################	
 
 leef.base: .PHONY
@@ -16,9 +16,17 @@ leef: .PHONY
 build.force: leef.force
 leef.force: .PHONY
 	docker build --no-cache	--tag leef:latest leef
+	
+	
+#################################	
+##### pull 					#####
+#################################	
+
+pull:
+	docker pull leefuzh/leef
 		
 #################################	
-##### run	 					#####
+##### run	 				#####
 #################################	
 
 run.leef.base:
