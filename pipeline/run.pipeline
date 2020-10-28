@@ -1,0 +1,9 @@
+#!/usr/local/bin/env r
+setwd("~rstudio/LEEF")
+
+options(mc.cores = parallel::detectCores() - 1)
+
+library(LEEF)
+initialize()
+
+LEEF::process("RMK")

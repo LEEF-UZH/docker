@@ -1,4 +1,3 @@
-
 #################################	
 ##### build 				#####
 #################################	
@@ -38,7 +37,7 @@ run.leef.base:
 	-ti \
 	leefuzh/leef
 	
-run: run.leef.rstudio
+rstudio: run.leef.rstudio
 run.leef.rstudio:
 	docker run \
 	--rm \
@@ -50,6 +49,7 @@ run.leef.rstudio:
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef 
@@ -66,6 +66,7 @@ run.leef.bash:
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -83,10 +84,34 @@ run.leef.R:
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
 	R
+
+#################################	
+##### run pipeline 			#####
+#################################	
+
+pipeline: run.pipeline
+run.pipeline:
+	docker cp ./leef/run.pipeline:/home/rstudio/run.pipeline
+	docker run \
+	--rm \
+	-p 8787:8787 \
+	-e PASSWORD=none \
+	-v ~/LEEF/000.NewData:/home/rstudio/LEEF/000.NewData \
+	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
+	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
+	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	/home/rstudio/LEEF/pipeline/run.pipeline
 
 #################################	
 ##### stop 					#####
