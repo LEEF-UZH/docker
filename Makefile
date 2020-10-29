@@ -51,7 +51,7 @@ run.leef.base:
 	leefuzh/leef
 	
 rstudio: run.leef.rstudio
-run.leef.rstudio:
+run.leef.rstudio: dirs
 	docker run \
 	--rm \
 	-p 8787:8787 \
@@ -68,7 +68,7 @@ run.leef.rstudio:
 	leefuzh/leef 
 	
 bash: run.leef.bash
-run.leef.bash:
+run.leef.bash: dirs
 	docker run \
 	--rm \
 	-p 8787:8787 \
@@ -86,7 +86,7 @@ run.leef.bash:
 	bash
 	
 R: run.leef.R
-run.leef.R:
+run.leef.R: dirs
 	docker run \
 	--rm \
 	-p 8787:8787 \
@@ -108,7 +108,7 @@ run.leef.R:
 #################################	
 
 pipeline: run.pipeline
-run.pipeline:
+run.pipeline: dirs
 	docker run \
 	--rm \
 	-p 8787:8787 \
