@@ -62,7 +62,7 @@ run.leef.rstudio: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef 
@@ -79,7 +79,7 @@ run.leef.bash: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -97,7 +97,7 @@ run.leef.R: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -119,11 +119,11 @@ run.pipeline: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline
+	/home/rstudio/LEEF/pipeline/run.pipeline.r
 
 #################################	
 ##### stop 					#####
