@@ -1,13 +1,15 @@
 #!/usr/bin/env r
 
-# if (is.null(argv) | length(argv)>1) {
-#   cat("Usage: run.pipeline pipeline.config.yml\n")
-#   cat("\n")
-#   q()
-# }
+if (is.null(argv) | length(argv) > 1) {
+  cat("Usage: run.pipeline pipeline.config.yml submitter\n")
+  cat("\n")
+  cat("Both arguments are needed!)
+  cat("\n")
+  q()
+}
 
-p.fast   <- normalizePath("./pipeline/pipeline.fast.yml")
-p.bemovi <- normalizePath("./pipeline/pipeline.bemovi.yml")
+pipeline <- normalizePath(argv[[1]])
+submitter <- argv[[2]]
 
 setwd("/home/rstudio/LEEF")
 
@@ -15,11 +17,7 @@ options(mc.cores = parallel::detectCores() - 1)
 
 library(LEEF)
 
-## Fast Pipeline
-LEEF::initialize(p.fastfast)
-LEEF::process("RMK")
+LEEF::initialize(argv[[1]])
 
-## bemovi pipeline
-LEEF::initialize(p.bemovi)
 LEEF::process("RMK")
 

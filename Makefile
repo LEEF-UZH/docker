@@ -10,6 +10,7 @@ dirs:
 	mkdir -p ~/LEEF/3.archived.data
 	mkdir -p ~/LEEF/9.backend
 	mkdir -p ~/LEEF/pipeline
+	cp -r ./pipeline/* ~/LEEF/pipeline
 
 #################################	
 ##### build 				#####
@@ -62,7 +63,7 @@ run.leef.rstudio: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v $PWD/docker/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef 
@@ -79,7 +80,7 @@ run.leef.bash: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v $PWD/docker/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -97,7 +98,7 @@ run.leef.R: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v $PWD/docker/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -119,7 +120,7 @@ run.pipeline: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v $PWD/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
