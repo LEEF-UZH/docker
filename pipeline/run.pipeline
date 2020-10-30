@@ -3,7 +3,7 @@
 if (is.null(argv) | length(argv) > 1) {
   cat("Usage: run.pipeline pipeline.config.yml submitter\n")
   cat("\n")
-  cat("Both arguments are needed!)
+  cat("Both arguments are needed!\n")
   cat("\n")
   q()
 }
