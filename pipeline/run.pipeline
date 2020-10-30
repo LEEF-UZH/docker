@@ -26,7 +26,7 @@ options(mc.cores = parallel::detectCores() - 1)
 
 library(LEEF)
 
-LEEF::initialize(argv[[1]])
+LEEF::initialize(config_file = pipeline)
 
 LEEF::process("RMK")
 
