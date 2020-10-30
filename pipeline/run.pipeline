@@ -1,6 +1,8 @@
 #!/usr/bin/env r
 
-if (is.null(argv) | length(argv) > 1) {
+print(argv)
+if (is.null(argv) | length(argv) != 2) {
+  cat("\n")
   cat("Usage: run.pipeline pipeline.config.yml submitter\n")
   cat("\n")
   cat("Both arguments are needed!\n")
@@ -8,7 +10,14 @@ if (is.null(argv) | length(argv) > 1) {
   q()
 }
 
-pipeline <- normalizePath(argv[[1]])
+pipeline <- normalizePath(
+	file.path("/", "home", "rstudio", "LEEF", "pipeline", argv[[1]]),
+	mustWork = FALSE
+	)
+
+if (!file.exists(pipeline)) {
+	stop(argv[[1]], ": ", " pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
+}
 submitter <- argv[[2]]
 
 setwd("/home/rstudio/LEEF")
