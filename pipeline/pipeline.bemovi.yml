@@ -3,7 +3,7 @@
 # General info regarding the processing
 
 
-name: LEEF
+name: LEEF.bemovi
 description: LEEF Data from an long term experiment.
              Some more detaled info has to follow.
 maintainer: Rainer M. Krug <Rainer@uzh.ch>
