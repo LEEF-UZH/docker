@@ -1,3 +1,5 @@
+ID = "default"
+
 #################################	
 ##### build 				#####
 #################################	
@@ -63,7 +65,6 @@ run.leef.rstudio: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef 
@@ -80,7 +81,6 @@ run.leef.bash: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -98,7 +98,6 @@ run.leef.R: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -107,6 +106,22 @@ run.leef.R: dirs
 #################################	
 ##### run pipeline 			#####
 #################################	
+
+pipeline.all: run.pipeline.all
+run.pipeline.all: dirs
+	docker run \
+	--rm \
+	-p 8787:8787 \
+	-e PASSWORD=none \
+	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
+	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
+	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data/ \
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.all.yml RMK-Makefile $(ID)
 
 pipeline.bemovi: run.pipeline.bemovi
 run.pipeline.bemovi: dirs
@@ -119,11 +134,10 @@ run.pipeline.bemovi: dirs
 	-v ~/LEEF/2.extracted.data/bemovi:/home/rstudio/LEEF/2.extracted.data/bemovi \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.bemovi.yml RMK-Makefile
+	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.bemovi.yml RMK-Makefile $(ID)
 
 pipeline.fast: run.pipeline.fast
 run.pipeline.fast: dirs
@@ -156,12 +170,10 @@ run.pipeline.fast: dirs
 	\
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	\
-	-v ~/LEEF/pipeline:/home/rstudio/LEEF/pipeline \
-	\
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.fast.yml RMK-Makefile
+	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.fast.yml RMK-Makefile $(ID)
 
 #################################	
 ##### stop 					#####

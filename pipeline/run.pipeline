@@ -3,9 +3,9 @@
 print(argv)
 if (is.null(argv) | length(argv) != 2) {
   cat("\n")
-  cat("Usage: run.pipeline pipeline.config.yml submitter\n")
+  cat("Usage: run.pipeline pipeline.config.yml id\n")
   cat("\n")
-  cat("Both arguments are needed!\n")
+  cat("Both arguments are needed but `id` can be `""`!\n")
   cat("\n")
   q()
 }
@@ -26,7 +26,7 @@ options(mc.cores = parallel::detectCores() - 1)
 
 library(LEEF)
 
-LEEF::initialize(config_file = pipeline)
+LEEF::initialize(config_file = pipeline, iod = argv[[2]])
 
 LEEF::process("RMK")
 
