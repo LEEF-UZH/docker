@@ -54,7 +54,7 @@ archive_packages:
   LEEF.archive.default:
     name: LEEF.archive.default
     InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.archive.default')
-    RegisterCommand: LEEF.archive.default::register(compression = "tar_subdir")
+    RegisterCommand: LEEF.archive.default::register(compression = "none")
 
 # --------------------------------------------------------------------
 # backend packages ()
