@@ -1,11 +1,12 @@
-ifdef $(ID)
-BEMOVI = bemovi.$(ID)
-else
-BEMOVI = bemovi
 ID = "default"
+
+ifeq ($(ID), "default")
+BEMOVI = bemovi
+else
+BEMOVI = bemovi.$(ID)
 endif
 
-
+	
 ######################################	
 ##### create directory structure #####
 ######################################	
