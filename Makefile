@@ -20,6 +20,9 @@ dirs:
 	mkdir -p ~/LEEF/9.backend
 	mkdir -p ~/LEEF/pipeline
 	cp -r ./pipeline/* ~/LEEF/pipeline
+	## In-transit files
+	cp -r ~/LEEF/0.raw.data/sample_metadata.yml ~/LEEF/pipeline
+
 
 #################################	
 ##### build 				#####
