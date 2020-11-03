@@ -5,9 +5,9 @@ if (is.null(argv) | length(argv) != 2) {
   cat("\n")
   cat("Usage: run.pipeline pipeline.config.yml id\n")
   cat("\n")
-  cat("Both arguments are needed but `id` can be `""`!\n")
+  cat("Both arguments are needed but `id` can be ``!\n")
   cat("\n")
-  q(save = "no")
+  q()
 }
 
 pipeline <- normalizePath(
