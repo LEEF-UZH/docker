@@ -129,7 +129,7 @@ run.pipeline.all: dirs
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.all.yml RMK-Makefile $(ID)
+	/home/rstudio/LEEF/pipeline/run.pipeline.all pipeline.all.yml
 
 pipeline.bemovi: run.pipeline.bemovi
 run.pipeline.bemovi: dirs
@@ -145,7 +145,7 @@ run.pipeline.bemovi: dirs
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.bemovi.yml  $(ID)
+	/home/rstudio/LEEF/pipeline/run.pipeline.bemovi pipeline.bemovi.yml  $(ID)
 
 
 test: dirs
@@ -198,7 +198,7 @@ run.pipeline.fast: dirs
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.fast.yml  $(ID)
+	/home/rstudio/LEEF/pipeline/run.pipeline.fast pipeline.fast.yml
 
 #################################	
 ##### stop 					#####
