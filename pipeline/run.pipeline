@@ -25,7 +25,7 @@ options(mc.cores = parallel::detectCores() - 1)
 
 library(LEEF)
 
-LEEF::initialize(config_file = pipeline, iod = argv[[2]])
+LEEF::initialize(config_file = pipeline, id = argv[[2]])
 
 LEEF::process()
 
