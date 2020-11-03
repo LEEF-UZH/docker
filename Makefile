@@ -1,4 +1,4 @@
-ifdef ID
+ifdef $(ID)
 BEMOVI = bemovi.$(ID)
 else
 BEMOVI = bemovi
