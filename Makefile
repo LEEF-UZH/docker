@@ -20,12 +20,6 @@ dirs:
 	mkdir -p ~/LEEF/pipeline
 	cp -r ./pipeline/* ~/LEEF/pipeline
 
-######################################	
-##### create directory structure #####
-######################################	
-
-split:
-	./pipeline/split.bemovi 2 ./../0.raw.data
 
 #################################	
 ##### build 				#####
