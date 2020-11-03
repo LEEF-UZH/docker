@@ -20,6 +20,7 @@ dirs:
 	mkdir -p ~/LEEF/9.backend
 	mkdir -p ~/LEEF/pipeline
 	cp -r ./pipeline/* ~/LEEF/pipeline
+	cp -r sample_metadata.yml ~/LEEF/pipeline
 
 
 #################################	
