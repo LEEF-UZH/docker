@@ -10,13 +10,6 @@ if (is.null(argv) | length(argv) != 2) {
   q()
 }
 
-## Copy files "in transit" to final destination
-
-file.copy(
-	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"),
-	to = file.path("/", "home", "rstudio", "LEEF")
-)
-
 pipeline <- normalizePath(
 	file.path("/", "home", "rstudio", "LEEF", "pipeline", argv[[1]]),
 	mustWork = FALSE
