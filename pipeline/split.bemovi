@@ -1,0 +1,20 @@
+#!/usr/bin/env r
+
+print(argv)
+if (is.null(argv) | length(argv) != 2) {
+  cat("\n")
+  cat("Usage: split_bemovi per_batch bemovi_dir\n")
+  cat("\n")
+  cat("Both arguments are needed!\n")
+  cat("\n")
+  q()
+}
+
+library(LEEF)
+
+LEEF::split_bemovi(
+  per_batch = argv[[1]],
+  bemovi_dir = argv[[2]],
+  overwrite = TRUE
+)
+

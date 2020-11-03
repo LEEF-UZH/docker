@@ -1,8 +1,14 @@
+ifdef ID
+BEMOVI = bemovi.$(ID)
+else
+BEMOVI = bemovi
 ID = "default"
+endif
 
-#################################	
-##### build 				#####
-#################################	
+
+######################################	
+##### create directory structure #####
+######################################	
 
 dirs:
 	mkdir -p ~/LEEF/000.NewData
@@ -13,6 +19,13 @@ dirs:
 	mkdir -p ~/LEEF/9.backend
 	mkdir -p ~/LEEF/pipeline
 	cp -r ./pipeline/* ~/LEEF/pipeline
+
+######################################	
+##### create directory structure #####
+######################################	
+
+split:
+	./pipeline/split.bemovi 2 ./../0.raw.data
 
 #################################	
 ##### build 				#####
@@ -129,16 +142,33 @@ run.pipeline.bemovi: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
-	-v ~/LEEF/0.raw.data/bemovi:/home/rstudio/LEEF/0.raw.data/bemovi \
-	-v ~/LEEF/1.pre-processed.data/bemovi:/home/rstudio/LEEF/1.pre-processed.data/bemovi \
-	-v ~/LEEF/2.extracted.data/bemovi:/home/rstudio/LEEF/2.extracted.data/bemovi \
+	-v ~/LEEF/0.raw.data/$(BEMOVI):/home/rstudio/LEEF/0.raw.data/bemovi \
+	-v ~/LEEF/1.pre-processed.data/$(BEMOVI):/home/rstudio/LEEF/1.pre-processed.data/bemovi \
+	-v ~/LEEF/2.extracted.data/$(BEMOVI):/home/rstudio/LEEF/2.extracted.data/bemovi \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.bemovi.yml RMK-Makefile $(ID)
+	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.bemovi.yml  $(ID)
 
+
+test: dirs
+	docker run \
+	--rm \
+	-p 8787:8787 \
+	-e PASSWORD=none \
+	-v ~/LEEF/0.raw.data/$(BEMOVI):/home/rstudio/LEEF/0.raw.data/bemovi \
+	-v ~/LEEF/1.pre-processed.data/$(BEMOVI):/home/rstudio/LEEF/1.pre-processed.data/bemovi \
+	-v ~/LEEF/2.extracted.data/$(BEMOVI):/home/rstudio/LEEF/2.extracted.data/bemovi \
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	bash
+	
+	
 pipeline.fast: run.pipeline.fast
 run.pipeline.fast: dirs
 	docker run \
@@ -173,7 +203,7 @@ run.pipeline.fast: dirs
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.fast.yml RMK-Makefile $(ID)
+	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.fast.yml  $(ID)
 
 #################################	
 ##### stop 					#####
