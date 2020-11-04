@@ -18,10 +18,10 @@ dirs:
 	mkdir -p ~/LEEF/2.extracted.data
 	mkdir -p ~/LEEF/3.archived.data
 	mkdir -p ~/LEEF/9.backend
-	mkdir -p ~/pipeline
-	cp -r ./pipeline/* ~/pipeline
+	mkdir -p ~/LEEF_pipeline
+	cp -r ./pipeline/* ~/LEEF_pipeline
 	## In-transit files
-	cp -r ~/LEEF/0.raw.data/sample_metadata.yml ~/LEEF/pipeline
+	cp -r ~/LEEF/0.raw.data/sample_metadata.yml ~/LEEF_pipeline
 
 
 #################################	
@@ -128,7 +128,7 @@ run.pipeline.all: dirs
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data/ \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -145,14 +145,14 @@ run.pipeline.bemovi: dirs
 	-v ~/LEEF/2.extracted.data/$(BEMOVI):/home/rstudio/LEEF/2.extracted.data/bemovi \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
 	/home/rstudio/LEEF/pipeline/run.pipeline.bemovi $(ID)
 
 
-test: dirs
+test.bemovi: dirs
 	docker run \
 	--rm \
 	-p 8787:8787 \
@@ -162,7 +162,7 @@ test: dirs
 	-v ~/LEEF/2.extracted.data/$(BEMOVI):/home/rstudio/LEEF/2.extracted.data/bemovi \
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \

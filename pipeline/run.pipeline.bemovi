@@ -19,7 +19,7 @@ file.copy(
 unlink(file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"))
 
 pipeline <- normalizePath(
-	file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.config.yml"),
+	file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.bemovi.yml"),
 	mustWork = FALSE
 	)
 
