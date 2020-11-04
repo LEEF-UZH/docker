@@ -200,7 +200,7 @@ run.pipeline.fast: dirs
 	\
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	\
-	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	\
 	--memory-swap=-1 \
 	-ti \
@@ -237,7 +237,7 @@ test.fast: dirs
 	\
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	\
-	-v ~/pipeline:/home/rstudio/LEEF/pipeline \
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	\
 	--memory-swap=-1 \
 	-ti \
