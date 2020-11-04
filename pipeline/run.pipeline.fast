@@ -1,0 +1,30 @@
+#!/usr/bin/env r
+
+
+## Copy files "in transit" to final destination
+
+file.copy(
+	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"),
+	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data")
+)
+unlink(file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"))
+
+pipeline <- normalizePath(
+	file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.fast.yml"),
+	mustWork = FALSE
+)
+
+if (!file.exists(pipeline)) {
+	stop"pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
+}
+
+setwd("/home/rstudio/LEEF")
+
+options(mc.cores = parallel::detectCores() - 1)
+
+library(LEEF)
+
+LEEF::initialize(config_file = pipeline)
+
+LEEF::process()
+

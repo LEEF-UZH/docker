@@ -149,7 +149,7 @@ run.pipeline.bemovi: dirs
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.bemovi.yml  $(ID)
+	/home/rstudio/LEEF/pipeline/run.pipeline.bemovi  $(ID)
 
 
 test: dirs
@@ -205,7 +205,7 @@ run.pipeline.fast: dirs
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.fast.yml
+	/home/rstudio/LEEF/pipeline/run.pipeline.fast
 
 #################################	
 ##### stop 					#####
