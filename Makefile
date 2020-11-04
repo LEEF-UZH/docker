@@ -207,7 +207,7 @@ run.pipeline.fast: dirs
 	leefuzh/leef \
 	/home/rstudio/LEEF/pipeline/run.pipeline.fast
 
-run.pipeline.fast: dirs
+test.fast: dirs
 	docker run \
 	--rm \
 	-p 8787:8787 \
@@ -243,6 +243,7 @@ run.pipeline.fast: dirs
 	-ti \
 	leefuzh/leef \
 	bash
+	
 #################################	
 ##### stop 					#####
 #################################	
