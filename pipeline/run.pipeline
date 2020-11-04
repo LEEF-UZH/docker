@@ -21,7 +21,7 @@ unlink(file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.ym
 pipeline <- normalizePath(
 	file.path("/", "home", "rstudio", "LEEF", "pipeline", argv[[1]]),
 	mustWork = FALSE
-	)
+)
 
 if (!file.exists(pipeline)) {
 	stop(argv[[1]], ": ", " pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
