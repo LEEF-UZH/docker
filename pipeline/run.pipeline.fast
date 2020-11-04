@@ -15,7 +15,7 @@ pipeline <- normalizePath(
 )
 
 if (!file.exists(pipeline)) {
-	stop"pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
+	stop("pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
 }
 
 setwd("/home/rstudio/LEEF")
