@@ -38,7 +38,7 @@ RUN install2.r --error \
 	purrr \ 
 	sys \ 
 	callr \ 
-   	 prettyunits \ 
+   	prettyunits \ 
 	backports \ 
 	data.table \ 
    	circular \ 
@@ -58,7 +58,7 @@ RUN install2.r --error \
 	rprojroot \ 
    	rstudioapi \ 
 	dplyr \ 
-   	 readr \ 
+   	readr \ 
 	tiff \ 
 	openssl \ 
 	cli \ 
