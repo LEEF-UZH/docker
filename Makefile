@@ -177,21 +177,18 @@ run.pipeline.fast: dirs
 	-e PASSWORD=none \
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
-	-v ~/LEEF/0.raw.data/incubatortemp:/home/rstudio/LEEF/0.raw.data/incubatortemp \
 	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
 	-v ~/LEEF/0.raw.data/o2meter:/home/rstudio/LEEF/0.raw.data/o2meter \
 	-v ~/LEEF/0.raw.data/toc:/home/rstudio/LEEF/0.raw.data/toc \
 	\
 	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
 	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
-	-v ~/LEEF/1.pre-processed.data/incubatortemp:/home/rstudio/LEEF/1.pre-processed.data/incubatortemp \
 	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
 	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
 	-v ~/LEEF/1.pre-processed.data/toc:/home/rstudio/LEEF/1.pre-processed.data/toc \
 	\
 	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
 	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
-	-v ~/LEEF/2.extracted.data/incubatortemp:/home/rstudio/LEEF/2.extracted.data/incubatortemp \
 	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
 	-v ~/LEEF/2.extracted.data/o2meter:/home/rstudio/LEEF/2.extracted.data/o2meter \
 	-v ~/LEEF/2.extracted.data/toc:/home/rstudio/LEEF/2.extracted.data/toc \
@@ -214,21 +211,18 @@ test.fast: dirs
 	-e PASSWORD=none \
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
-	-v ~/LEEF/0.raw.data/incubatortemp:/home/rstudio/LEEF/0.raw.data/incubatortemp \
 	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
 	-v ~/LEEF/0.raw.data/o2meter:/home/rstudio/LEEF/0.raw.data/o2meter \
 	-v ~/LEEF/0.raw.data/toc:/home/rstudio/LEEF/0.raw.data/toc \
 	\
 	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
 	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
-	-v ~/LEEF/1.pre-processed.data/incubatortemp:/home/rstudio/LEEF/1.pre-processed.data/incubatortemp \
 	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
 	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
 	-v ~/LEEF/1.pre-processed.data/toc:/home/rstudio/LEEF/1.pre-processed.data/toc \
 	\
 	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
 	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
-	-v ~/LEEF/2.extracted.data/incubatortemp:/home/rstudio/LEEF/2.extracted.data/incubatortemp \
 	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
 	-v ~/LEEF/2.extracted.data/o2meter:/home/rstudio/LEEF/2.extracted.data/o2meter \
 	-v ~/LEEF/2.extracted.data/toc:/home/rstudio/LEEF/2.extracted.data/toc \
