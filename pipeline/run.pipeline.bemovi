@@ -25,7 +25,7 @@ unlink(file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.ym
 bec_template <- file.path( "/", "home", "rstudio", "LEEF", "pipeline", paste0("bemovi_extract.", argv[[1]], ".yml") )
 bec          <- file.path( "/", "home", "rstudio", "LEEF", "0.raw.data", "bemovi", paste0("bemovi_extract.yml") )
 
-if (file.exists(bec)) {
+if (file.exists(bec_template)) {
 	message(">>> Using ", paste0("bemovi_extract.", argv[[1]], ".yml"), " template.")
 	file.copy(
 		from = bec_template,
