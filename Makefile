@@ -240,7 +240,7 @@ test.fast: dirs
 	bash
 	
 	
-run.pipeline
+run.pipeline: run.pipeline.leef
 run.pipeline.leef: 
 	make run.pipeline.fast
 	make run.pipeline.bemovi ID=mag.25
