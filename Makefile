@@ -134,6 +134,7 @@ run.pipeline.all: dirs
 	leefuzh/leef \
 	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.all.yml
 
+
 pipeline.bemovi: run.pipeline.bemovi
 run.pipeline.bemovi: dirs
 	docker run \
@@ -238,6 +239,14 @@ test.fast: dirs
 	leefuzh/leef \
 	bash
 	
+	
+run.pipeline
+run.pipeline.leef: 
+	make run.pipeline.fast
+	make run.pipeline.bemovi ID=mag.25
+#	make run.pipeline.bemovi ID=mag.16
+
+
 #################################	
 ##### stop 					#####
 #################################	
