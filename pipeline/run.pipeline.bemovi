@@ -10,13 +10,33 @@ if (is.null(argv) | length(argv) != 1) {
   q()
 }
 
-## Copy files "in transit" to final destination
+
+# Copy files "in transit" to final destination ------------------------------------------
 
 file.copy(
 	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"),
 	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data")
 )
 unlink(file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"))
+
+
+# Copy bemovi.extract.argv[[1]].yml file --------------------------------------------------------------------
+
+bec_template <- file.path( "/", "home", "rstudio", "LEEF", "pipeline", paste0("bemovi_extract.", argv[[1]], ".yml") )
+bec          <- file.path( "/", "home", "rstudio", "LEEF", "0.raw.data", "bemovi", paste0("bemovi_extract.yml") )
+
+if (file.exists(bec)) {
+	message(">>> Using ", paste0("bemovi_extract.", argv[[1]], ".yml"), " template.")
+	file.copy(
+		from = bec_template,
+		to = bec,
+		overwrite = TRUE
+	)
+} else {
+	message(">>> Using bemovi_extract.yml from bemovi directory.")
+}
+
+#  --------------------------------------------------------------------
 
 pipeline <- normalizePath(
 	file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.bemovi.yml"),
