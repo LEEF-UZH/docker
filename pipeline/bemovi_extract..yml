@@ -47,4 +47,4 @@ extrapolation.factor: 13.84
 height: ~
 width: ~
 
-timeout: 3600
+timeout: 7200
