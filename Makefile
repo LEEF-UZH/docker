@@ -243,7 +243,7 @@ test.fast: dirs
 	
 run.pipeline: run.pipeline.leef
 run.pipeline.leef: 
-	make run.pipeline.fast  &> log.$(TS).fast.txt
+	$(MAKE run.pipeline.fast ) &> log.$(TS).fast.txt
 	echo "############################" >> log.$(TS).fast.txt
 	echo "BEGIN: " $(TS)  >> log.$(TS).fast.txt
 	echo "END:   " $(shell /bin/date '+%Y-%m-%d--%H-%M-%S')  >> log.$(TS).fast.txt
