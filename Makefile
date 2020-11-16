@@ -239,26 +239,6 @@ test.fast: dirs
 	-ti \
 	leefuzh/leef \
 	bash
-	
-	
-run.pipeline: run.pipeline.leef
-run.pipeline.leef: 
-	$(MAKE run.pipeline.fast ) &> log.$(TS).fast.txt
-	echo "############################" >> log.$(TS).fast.txt
-	echo "BEGIN: " $(TS)  >> log.$(TS).fast.txt
-	echo "END:   " $(shell /bin/date '+%Y-%m-%d--%H-%M-%S')  >> log.$(TS).fast.txt
-	echo "############################" >> log.$(TS).fast.txt
-#	make run.pipeline.bemovi ID=mag.25 &> log.$(TS).bemovi.mag.25.txt
-#	echo "############################" >> log.$(TS).bemovi.mag.25.txt
-#	echo "BEGIN: " $(TS)  >> log.$(TS).bemovi.mag.25.txt
-#	echo "END:   " $(shell /bin/date '+%Y-%m-%d--%H-%M-%S')  >> log.$(TS).bemovi.mag.25.txt
-#	echo "############################" >> log.$(TS).bemovi.mag.25.txt
-#	make run.pipeline.bemovi ID=mag.16 &> log.$(TS).bemovi.mag.16.txt
-#	echo "############################" >> log.$(TS).bemovi.mag.16.txt
-#	echo "BEGIN: " $(TS)  >> log.$(TS).bemovi.mag.16.txt
-#	echo "END:   " $(shell /bin/date '+%Y-%m-%d--%H-%M-%S')  >> log.$(TS).bemovi.mag.16.txt
-#	echo "############################" >> log.$(TS).bemovi.mag.16.txt
-
 
 #################################	
 ##### stop 					#####
