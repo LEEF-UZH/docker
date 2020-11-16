@@ -242,9 +242,9 @@ test.fast: dirs
 	
 run.pipeline: run.pipeline.leef
 run.pipeline.leef: 
-	$(eval DS := $(shell date '+%Y-%m-%d--%H-%M-%S'))
+	$(eval DS := $(date '+%Y-%m-%d--%H-%M-%S'))
 	make run.pipeline.fast  >& log.$(DS).fast.txt
-	echo $(shell date '+%Y-%m-%d--%H-%M-%S')) >> log.$(DS).fast.txt
+	echo $(date '+%Y-%m-%d--%H-%M-%S')) >> log.$(DS).fast.txt
 #	make run.pipeline.bemovi ID=mag.25 >& log.$(DS).bemovi.mag.25.txt
 #	echo $(shell date '+%Y-%m-%d--%H-%M-%S')) >> log.$(DS).bemovi.mag.25.txt
 #	make run.pipeline.bemovi ID=mag.16 >& log.$(DS).bemovi.mag.16.txt
