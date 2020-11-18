@@ -50,6 +50,7 @@ if (!file.exists(pipeline)) {
 setwd("/home/rstudio/LEEF")
 
 options(mc.cores = parallel::detectCores() - 1)
+options(warn = 1)
 
 library(LEEF)
 
