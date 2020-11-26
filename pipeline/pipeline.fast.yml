@@ -86,10 +86,10 @@ archive_packages:
 
 
 backend_packages:
-  LEEF.backend.csv:
-    name: LEEF.backend.csv
-    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.backend.csv')
-    RegisterCommand: LEEF.backend.csv::register()
+  LEEF.backend.sqlite:
+    name: LEEF.backend.sqlite
+    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.backend.sqlite')
+    RegisterCommand: LEEF.backend.sqlite::register()
   # LEEF.backend.sqlite:
   #   name: LEEF.backend.sqlite
   #   InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.backend.sqlite')
