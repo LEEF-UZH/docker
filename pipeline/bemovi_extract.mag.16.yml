@@ -44,7 +44,7 @@ max_area: 50000
 
 extrapolation.factor: 13.84
 
-height: ~
-width: ~
+height: 2048
+width: 2048
 
 timeout: 7200
