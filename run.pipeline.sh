@@ -31,3 +31,7 @@ echo "## BEGIN: " $TS "##" >> $LF
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
 echo "##################################" >> $LF
 ##
+## In-transit files
+cp -r ~/LEEF_pipeline/sample_metadata.yml ~/LEEF/0.raw.data
+cp -r ~/LEEF_pipeline/sample_metadata.yml ~/LEEF/1.pre-processed.data
+cp -r ~/LEEF_pipeline/sample_metadata.yml ~/LEEF/2.extracted.data

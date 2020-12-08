@@ -29,3 +29,10 @@ LEEF::initialize(config_file = pipeline)
 
 LEEF::process()
 
+## Copy files "in transit"
+
+file.copy(
+	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data", "sample_metadata.yml")
+	from = file.path("/", "home", "rstudio", "LEEF", "pipeline"),
+)
+unlink(file.path("/", "home", "rstudio", "LEEF", "0.raw.data", "sample_metadata.yml"))
