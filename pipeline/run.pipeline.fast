@@ -27,12 +27,51 @@ library(LEEF)
 
 LEEF::initialize(config_file = pipeline)
 
-LEEF::process()
+LEEF::process(process = FALSE)
 
-## Copy files "in transit"
-
-file.copy(
-	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data", "sample_metadata.yml"),
-	from = file.path("/", "home", "rstudio", "LEEF", "pipeline"),
+message("\n########################################################\n")
+message("\narchiving raw data ...\n")
+LEEF.archive.default::run_archive_none(
+  input = getOption("LEEF")$directories$raw,
+  output = file.path(getOption("LEEF")$directories$archive, "raw")
 )
-unlink(file.path("/", "home", "rstudio", "LEEF", "0.raw.data", "sample_metadata.yml"))
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\npre_processing ...\n")
+run_pre_processors()
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\narchiving pre-processed data...\n")
+LEEF.archive.default::run_archive_tar.gz(
+  input = getOption("LEEF")$directories$pre_processed,
+  output = file.path(getOption("LEEF")$directories$archive, "pre_processed")
+)
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\nextracting ...\n")
+run_extractors()
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\narchiving extracted data ...\n")
+LEEF.archive.default::run_archive_tar.gz(
+  input = getOption("LEEF")$directories$extracted,
+  output = file.path(getOption("LEEF")$directories$archive, "extracted")
+)
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\nadding...\n")
+run_additors()
+message("done\n")
+message("\n########################################################\n")
+
+
