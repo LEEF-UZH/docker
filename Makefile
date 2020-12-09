@@ -24,7 +24,6 @@ dirs:
 	## In-transit files
 	cp -r ~/LEEF/0.raw.data/sample_metadata.yml ~/LEEF_pipeline
 
-
 #################################	
 ##### build 				#####
 #################################	
