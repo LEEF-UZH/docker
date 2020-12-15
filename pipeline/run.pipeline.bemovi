@@ -54,7 +54,7 @@ options(warn = 1)
 
 library(LEEF)
 
-LEEF::initialize(config_file = pipeline, id = argv[[1]])
+LEEF::init_LEEF(config_file = pipeline, id = argv[[1]])
 
 LEEF::process(process = FALSE)
 
