@@ -55,4 +55,3 @@ crop_pixels:
   xmax: .inf
   ymin: 0.0
   ymax: .inf
-  ymax: 100.0
