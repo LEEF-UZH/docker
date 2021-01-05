@@ -48,3 +48,11 @@ height: 2048
 width: 2048
 
 timeout: 7200
+
+# crop image - .inf mens infinity, so no cropping.
+crop_pixels:
+  xmin: 0.0
+  xmax: .inf
+  ymin: 0.0
+  ymax: .inf
+  ymax: 100.0
