@@ -5,15 +5,15 @@
 video.description.folder: 0 - video description
 video.description.file: video.description.txt
 raw.video.folder: 1 - raw
-particle.data.folder: 2 - particle data
+particle.data.folder: 2 - particle data cropped
 particle: particle.rds
-trajectory.data.folder: 3 - trajectory data
+trajectory.data.folder: 3 - trajectory data cropped
 trajectory: trajectory.rds
-overlay.folder: 4 - overlays
-temp.overlay.folder: 4a - temp overlays
+overlay.folder: 4 - overlays cropped
+temp.overlay.folder: 4a - temp overlays cropped
 merged.data.folder: 5 - merged data
-morph_mvt: Morph_mvt.rds
-master: Master.rds
+morph_mvt: Morph_mvt_cropped.rds
+master: Master_cropped.rds
 
 ##################################
 # General Parameter
@@ -21,7 +21,7 @@ master: Master.rds
 
 memory: 10000.0
 fps: 25.0
-pixel_to_scale: 6.290
+pixel_to_scale: 4.124
 
 ##################################
 # locate_and_measure_particles
@@ -29,9 +29,9 @@ pixel_to_scale: 6.290
 
 difference.lag: 10.0
 thresholds:
-- 16.0
+- 10.0
 - 255.0
-min_size: 25.27544
+min_size: 17.63941
 max_size: 2000.0
 
 ##################################
@@ -54,10 +54,10 @@ duration_filter: 0.28
 # filter 2
 ##################################
 
-min_area: 1000
+min_area: 300
 max_area: 50000
 
-extrapolation.factor: 10.044
+extrapolation.factor: 23.367
 
 height: 2048
 width: 2048
@@ -69,23 +69,23 @@ timeout: 7200
 ##################################
 
 crop_pixels:
-  xmin: 0.0
-  xmax: .inf
-  ymin: 0.0
-  ymax: .inf
+  xmin: 512
+  xmax: 1536
+  ymin: 512
+  ymax: 1536
   
 ##################################
 # new parameters
 ##################################
 
-analysis_folder: analysis_uncropped
+analysis_folder: analysis_cropped
 
-name_constant: ../classifiers/video_classifiers_18c_16x.rds
-name_increasing: ../classifiers/video_classifiers_increasing_16x_best_available.rds
+name_constant: ../classifiers/video_classifiers_18c_25x.rds
+name_increasing: ../classifiers/video_classifiers_increasing_25x_best_available.rds
 
-cropping.factor: 1
+cropping.factor: 4
 
-species.tracked:  c("Coleps_irchel", "Coleps_viridis", "Colpidium", "Stylonychia1", "Stylonychia2", "Didinium", "Paramecium_caudatum", "Paramecium_bursaria", "Euplotes")
+species.tracked: c("Dexiostoma", "Loxocephallus", "Tetrahymena", "Debris_and_other", "Cryptomonas")
 
 ##################################
 ##################################

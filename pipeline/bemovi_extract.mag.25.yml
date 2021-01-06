@@ -1,3 +1,102 @@
+##################################
+# Folder structure
+##################################
+
+video.description.folder: 0 - video description
+video.description.file: video.description.txt
+raw.video.folder: 1 - raw
+particle.data.folder: 2 - particle data
+particle: particle.rds
+trajectory.data.folder: 3 - trajectory data
+trajectory: trajectory.rds
+overlay.folder: 4 - overlays
+temp.overlay.folder: 4a - temp overlays
+merged.data.folder: 5 - merged data
+morph_mvt: Morph_mvt.rds
+master: Master.rds
+
+##################################
+# General Parameter
+##################################
+
+memory: 10000.0
+fps: 25.0
+pixel_to_scale: 4.124
+
+##################################
+# locate_and_measure_particles
+##################################
+
+difference.lag: 10.0
+thresholds:
+- 10.0
+- 255.0
+min_size: 35.27881
+max_size: 2000.0
+
+##################################
+# link_particles
+##################################
+
+linkrange: 3.0
+disp: 40.0
+
+##################################
+# filter
+##################################
+
+detect_filter: 0.7142857
+median_step_filter: 1.1
+net_filter: 30
+duration_filter: 0.28
+
+##################################
+# filter 2
+##################################
+
+min_area: 600
+max_area: 50000
+
+extrapolation.factor: 23.367
+
+height: 2048
+width: 2048
+
+timeout: 7200
+
+##################################
+# crop image - .inf mens infinity, so no cropping.
+##################################
+
+crop_pixels:
+  xmin: 0.0
+  xmax: .inf
+  ymin: 0.0
+  ymax: .inf
+  
+##################################
+# new parameters
+##################################
+
+analysis_folder: analysis_uncropped
+
+name_constant: ../classifiers/video_classifiers_18c_25x.rds
+name_increasing: ../classifiers/video_classifiers_increasing_25x_best_available.rds
+
+cropping.factor: 1
+
+species.tracked:  c("Coleps_irchel", "Coleps_viridis", "Colpidium", "Stylonychia1", "Stylonychia2", "Didinium", "Paramecium_caudatum", "Paramecium_bursaria", "Euplotes")
+
+##################################
+##################################
+## NO EDIT FROM HERE! ############
+##################################
+##################################
+
+##################################
+# Tool folders - DO NOT CHANGE
+##################################
+
 IJ.path: ~
 ijmacs.folder: ijmacs
 java.path: ~
@@ -5,53 +104,6 @@ java.path: ~
 to.data: ~
 to.particlelinker: ~
 
-video.description.folder: 0 - video description
-video.description.file: video.description.txt
-raw.video.folder: 1 - raw
-particle.data.folder: 2 - particle data
-trajectory.data.folder: 3 - trajectory data
-overlay.folder: 4 - overlays
-temp.overlay.folder: 4a - temp overlays
-merged.data.folder: 5 - merged data
-
-
-memory: 10000.0
-fps: 25.0
-pixel_to_scale: 4.1666667
-
-# locate_and_measure_particles
-
-difference.lag: 10.0
-thresholds:
-- 15.0
-- 255.0
-min_size: 5.0
-max_size: 2000.0
-
-# link_particles
-linkrange: 3.0
-disp: 20.0
-
-# filter
-detect_filter: 0.8
-median_step_filter: 5
-net_filter: 50
-duration_filter: 0.4
-
-# filter 2
-min_area: 350
-max_area: 50000
-
-extrapolation.factor: 13.84
-
-height: 2048
-width: 2048
-
-timeout: 7200
-
-# crop image - .inf mens infinity, so no cropping.
-crop_pixels:
-  xmin: 0.0
-  xmax: .inf
-  ymin: 0.0
-  ymax: .inf
+##################################
+# The End
+##################################
