@@ -1,4 +1,10 @@
 ##################################
+##################################
+##     mag 25 cropped           ##
+##################################
+##################################
+
+##################################
 # Folder structure
 ##################################
 
@@ -20,7 +26,15 @@ master: Master_cropped.rds
 ##################################
 
 memory: 10000.0
+timeout: 7200
+
+##################################
+# Video Parameter
+##################################
+
 fps: 25.0
+height: 2048
+width: 2048
 pixel_to_scale: 4.124
 
 ##################################
@@ -59,11 +73,6 @@ max_area: 50000
 
 extrapolation.factor: 23.367
 
-height: 2048
-width: 2048
-
-timeout: 7200
-
 ##################################
 # crop image - .inf mens infinity, so no cropping.
 ##################################
@@ -78,14 +87,12 @@ crop_pixels:
 # new parameters
 ##################################
 
-analysis_folder: analysis_cropped
-
 name_constant: ../classifiers/video_classifiers_18c_25x.rds
 name_increasing: ../classifiers/video_classifiers_increasing_25x_best_available.rds
 
-cropping.factor: 4
-
 species.tracked: c("Dexiostoma", "Loxocephallus", "Tetrahymena", "Debris_and_other", "Cryptomonas")
+
+# cropping.factor: area original / area cropped
 
 ##################################
 ##################################

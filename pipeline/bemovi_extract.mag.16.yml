@@ -1,4 +1,10 @@
 ##################################
+##################################
+##     mag 16 uncropped         ##
+##################################
+##################################
+
+##################################
 # Folder structure
 ##################################
 
@@ -20,7 +26,15 @@ master: Master.rds
 ##################################
 
 memory: 10000.0
+timeout: 7200
+
+##################################
+# Video Parameter
+##################################
+
 fps: 25.0
+height: 2048
+width: 2048
 pixel_to_scale: 6.290
 
 ##################################
@@ -59,11 +73,6 @@ max_area: 50000
 
 extrapolation.factor: 10.044
 
-height: 2048
-width: 2048
-
-timeout: 7200
-
 ##################################
 # crop image - .inf mens infinity, so no cropping.
 ##################################
@@ -78,14 +87,12 @@ crop_pixels:
 # new parameters
 ##################################
 
-analysis_folder: analysis_uncropped
-
 name_constant: ../classifiers/video_classifiers_18c_16x.rds
 name_increasing: ../classifiers/video_classifiers_increasing_16x_best_available.rds
 
-cropping.factor: 1
-
 species.tracked:  c("Coleps_irchel", "Coleps_viridis", "Colpidium", "Stylonychia1", "Stylonychia2", "Didinium", "Paramecium_caudatum", "Paramecium_bursaria", "Euplotes")
+
+# cropping.factor: area original / area cropped
 
 ##################################
 ##################################
