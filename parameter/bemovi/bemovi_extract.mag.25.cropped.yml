@@ -84,13 +84,22 @@ crop_pixels:
   ymax: 1536
   
 ##################################
-# new parameters
+# classifiers and related parameter
 ##################################
 
-name_constant: ../classifiers/video_classifiers_18c_25x.rds
-name_increasing: ../classifiers/video_classifiers_increasing_25x_best_available.rds
+classifier_constant: "video_classifiers_18c_25x.rds"
+classifier_increasing: "video_classifiers_increasing_25x_best_available.rds"
 
-species.tracked: c("Dexiostoma", "Loxocephallus", "Tetrahymena", "Debris_and_other", "Cryptomonas")
+species_tracked:  
+- Coleps_irchel
+- Coleps_viridis
+- Colpidium
+- Stylonychia1
+- Stylonychia2
+- Didinium
+- Paramecium_caudatum
+- Paramecium_bursaria
+- Euplotes
 
 # cropping.factor: area original / area cropped
 
