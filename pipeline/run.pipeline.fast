@@ -1,13 +1,15 @@
 #!/usr/bin/env r
 
 
-## Copy files "in transit" to final destination
+## Copy General Parameter files into 0.raw.data directory
 
 file.copy(
-	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"),
-	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data")
+	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "InTransit"),
+	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data"),
+	recursive = TRUE
 )
-unlink(file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"))
+
+## Define pipeline .yml file
 
 pipeline <- normalizePath(
 	file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.fast.yml"),
@@ -17,6 +19,8 @@ pipeline <- normalizePath(
 if (!file.exists(pipeline)) {
 	stop("pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
 }
+
+## And Run!
 
 setwd("/home/rstudio/LEEF")
 

@@ -10,13 +10,13 @@ if (is.null(argv) | length(argv) != 2) {
   q()
 }
 
-## Copy files "in transit" to final destination
+## Copy General Parameter files into 0.raw.data directory
 
 file.copy(
-	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"),
-	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data")
+	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "InTransit"),
+	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data"),
+	recursive = TRUE
 )
-unlink(file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"))
 
 pipeline <- normalizePath(
 	file.path("/", "home", "rstudio", "LEEF", "pipeline", argv[[1]]),

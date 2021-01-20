@@ -11,14 +11,13 @@ if (is.null(argv) | length(argv) != 1) {
 }
 
 
-# Copy files "in transit" to final destination ------------------------------------------
+## Copy General Parameter files into 0.raw.data directory
 
 file.copy(
-	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"),
-	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data")
+	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "InTransit"),
+	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data"),
+	recursive = TRUE
 )
-unlink(file.path("/", "home", "rstudio", "LEEF", "pipeline", "sample_metadata.yml"))
-
 
 # Copy bemovi.extract.argv[[1]].yml file --------------------------------------------------------------------
 
@@ -33,7 +32,7 @@ if (file.exists(bec_template)) {
 		overwrite = TRUE
 	)
 } else {
-	message(">>> Using bemovi_extract.yml from bemovi directory.")
+	stop("Missing ", paste0("bemovi_extract.", argv[[1]], ".yml"), "file!")
 }
 
 #  --------------------------------------------------------------------
