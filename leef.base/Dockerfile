@@ -73,6 +73,7 @@ RUN install2.r --error \
 	testthat \ 
 	R.utils \
 	shiny \
-	drat
+	drat \
+	randomForest
 	
 
