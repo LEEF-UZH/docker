@@ -13,7 +13,6 @@ TS = $(shell /bin/date '+%Y-%m-%d--%H-%M-%S')
 ######################################	
 
 dirs:
-	mkdir -p ~/LEEF/000.NewData
 	mkdir -p ~/LEEF/0.raw.data
 	mkdir -p ~/LEEF/1.pre-processed.data
 	mkdir -p ~/LEEF/2.extracted.data
@@ -70,7 +69,6 @@ run.leef.rstudio: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
-	-v ~/LEEF/000.NewData:/home/rstudio/LEEF/000.NewData \
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
@@ -86,7 +84,6 @@ run.leef.bash: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
-	-v ~/LEEF/000.NewData:/home/rstudio/LEEF/000.NewData \
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
@@ -103,7 +100,6 @@ run.leef.R: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
-	-v ~/LEEF/000.NewData:/home/rstudio/LEEF/000.NewData \
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
