@@ -10,22 +10,6 @@ if (is.null(argv) | length(argv) != 1) {
   q()
 }
 
-
-## Copy General Parameter files into 0.raw.data/METHODS directores
-
-meth <- list.dirs(
-	file.path("/", "home", "rstudio", "LEEF", "0.raw.data"), 
-	full.names = TRUE, 
-	recursive = FALSE
-)
-
-for (f in meth) {
-	file.copy(
-		from = file.path("/", "home", "rstudio", "LEEF", "00.general.parameter", "."),
-		to = f,
-		recursive = TRUE
-	)
-}
 # Copy bemovi.extract.argv[[1]].yml file --------------------------------------------------------------------
 
 bec_template <- file.path( "/", "home", "rstudio", "LEEF", "pipeline", paste0("bemovi_extract.", argv[[1]], ".yml") )
