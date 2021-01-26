@@ -4,7 +4,7 @@
 ## Copy General Parameter files into 0.raw.data directory
 
 file.copy(
-	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "InTransit"),
+	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "general.parameter"),
 	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data"),
 	recursive = TRUE
 )

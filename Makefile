@@ -21,8 +21,8 @@ dirs:
 	mkdir -p ~/LEEF_pipeline
 	cp -r ./pipeline/* ~/LEEF_pipeline
 	## Copy General parameter files
-	cp -r ~/LEEF/00.general.parameter/* ~/LEEF_pipeline/InTransit/
-	rm -f ~/LEEF_pipeline/InTransit/dummy
+	cp -r ~/LEEF/00.general.parameter/* ~/LEEF_pipeline/general.parameter/
+	rm -f ~/LEEF_pipeline/general.parameter/dummy
 	
 #################################	
 ##### build 				#####
