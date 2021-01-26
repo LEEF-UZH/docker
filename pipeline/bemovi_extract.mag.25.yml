@@ -8,8 +8,6 @@
 # Folder structure
 ##################################
 
-video.description.folder: 0 - video description
-video.description.file: video.description.txt
 raw.video.folder: 1 - raw
 particle.data.folder: 2 - particle data
 particle: particle.rds

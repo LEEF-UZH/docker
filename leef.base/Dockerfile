@@ -32,18 +32,18 @@ RUN install2.r --error \
 	ps \ 
 	utf8 \ 
 	processx \ 
-  	mvtnorm \ 
-  	pillar \ 
+  mvtnorm \ 
+  pillar \ 
 	pkgconfig \ 
 	purrr \ 
 	sys \ 
 	callr \ 
-   	prettyunits \ 
+  prettyunits \ 
 	backports \ 
 	data.table \ 
-   	circular \ 
+  circular \ 
 	settings \ 
-   	generics \ 
+  generics \ 
 	lifecycle \ 
 	tibble \ 
 	tidyselect \ 
@@ -56,24 +56,27 @@ RUN install2.r --error \
 	desc \ 
 	pkgbuild \ 
 	rprojroot \ 
-   	rstudioapi \ 
+  rstudioapi \ 
 	dplyr \ 
-   	readr \ 
+  readr \ 
 	tiff \ 
 	openssl \ 
 	cli \ 
 	crayon \ 
 	ellipsis \ 
 	pkgload \ 
-   	praise \ 
+  praise \ 
 	R6 \ 
 	withr \ 
 	R.oo \ 
-   	R.methodsS3 \ 
+  R.methodsS3 \ 
 	testthat \ 
 	R.utils \
 	shiny \
 	drat \
-	randomForest
+	randomForest \
+	readxl \
+	progress \
+	cellranger
 	
 
