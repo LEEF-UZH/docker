@@ -13,6 +13,7 @@ TS = $(shell /bin/date '+%Y-%m-%d--%H-%M-%S')
 ######################################	
 
 dirs:
+  mkdir -p ~/LEFF/00.general.parameter
 	mkdir -p ~/LEEF/0.raw.data
 	mkdir -p ~/LEEF/1.pre-processed.data
 	mkdir -p ~/LEEF/2.extracted.data
@@ -20,9 +21,6 @@ dirs:
 	mkdir -p ~/LEEF/9.backend
 	mkdir -p ~/LEEF_pipeline
 	cp -r ./pipeline/* ~/LEEF_pipeline
-	## Copy General parameter files
-	cp -r ~/LEEF/00.general.parameter/* ~/LEEF_pipeline/general.parameter/
-	rm -f ~/LEEF_pipeline/general.parameter/dummy
 	
 #################################	
 ##### build 				#####
@@ -69,6 +67,9 @@ run.leef.rstudio: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter \	
+	\
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
@@ -84,6 +85,9 @@ run.leef.bash: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter \	
+	\
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
@@ -100,6 +104,9 @@ run.leef.R: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter \	
+	\
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data \
@@ -120,6 +127,9 @@ run.pipeline.all: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter \	
+	\
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
 	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data/ \
@@ -138,6 +148,9 @@ run.pipeline.bemovi: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter \	
+	\
 	-v ~/LEEF/0.raw.data/$(BEMOVI):/home/rstudio/LEEF/0.raw.data/bemovi \
 	-v ~/LEEF/1.pre-processed.data/$(BEMOVI):/home/rstudio/LEEF/1.pre-processed.data/bemovi \
 	-v ~/LEEF/2.extracted.data/$(BEMOVI):/home/rstudio/LEEF/2.extracted.data/bemovi \
@@ -155,6 +168,9 @@ test.bemovi: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter \	
+	\
 	-v ~/LEEF/0.raw.data/$(BEMOVI):/home/rstudio/LEEF/0.raw.data/bemovi \
 	-v ~/LEEF/1.pre-processed.data/$(BEMOVI):/home/rstudio/LEEF/1.pre-processed.data/bemovi \
 	-v ~/LEEF/2.extracted.data/$(BEMOVI):/home/rstudio/LEEF/2.extracted.data/bemovi \
@@ -173,6 +189,9 @@ run.pipeline.fast: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter \	
+	\
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
 	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
@@ -182,7 +201,7 @@ run.pipeline.fast: dirs
 	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
 	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
 	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
-\
+  \
 	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
 	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
 	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
@@ -204,6 +223,9 @@ test.fast: dirs
 	--rm \
 	-p 8787:8787 \
 	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter \	
+	\
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
 	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \

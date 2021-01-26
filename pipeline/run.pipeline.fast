@@ -1,13 +1,21 @@
 #!/usr/bin/env r
 
 
-## Copy General Parameter files into 0.raw.data directory
+## Copy General Parameter files into 0.raw.data/METHODS directores
 
-file.copy(
-	from = file.path("/", "home", "rstudio", "LEEF", "pipeline", "general.parameter"),
-	to = file.path("/", "home", "rstudio", "LEEF", "0.raw.data"),
-	recursive = TRUE
+meth <- list.dirs(
+	file.path("/", "home", "rstudio", "LEEF", "0.raw.data"), 
+	full.names = TRUE, 
+	recursive = FALSE
 )
+
+for (f in meth) {
+	file.copy(
+		from = file.path("/", "home", "rstudio", "LEEF", "00.general.parameter", "."),
+		to = f,
+		recursive = TRUE
+	)
+}
 
 ## Define pipeline .yml file
 
