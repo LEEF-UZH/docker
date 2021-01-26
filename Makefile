@@ -13,7 +13,7 @@ TS = $(shell /bin/date '+%Y-%m-%d--%H-%M-%S')
 ######################################	
 
 dirs:
-  mkdir -p ~/LEFF/00.general.parameter
+	mkdir -p ~/LEFF/00.general.parameter
 	mkdir -p ~/LEEF/0.raw.data
 	mkdir -p ~/LEEF/1.pre-processed.data
 	mkdir -p ~/LEEF/2.extracted.data
@@ -201,7 +201,7 @@ run.pipeline.fast: dirs
 	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
 	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
 	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
-  \
+	\
 	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
 	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
 	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
