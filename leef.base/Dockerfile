@@ -4,25 +4,25 @@ FROM rocker/rstudio:4.0.2
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
 	libxml2-dev \
-  	libcairo2-dev \
-  	libsqlite-dev \
-  	libtiff-dev \
-  	libssh2-1-dev \
-  	libssl-dev \
+  libcairo2-dev \
+  libsqlite-dev \
+  libtiff-dev \
+  libssh2-1-dev \
+  libssl-dev \
 	libpq-dev \
-  	libcairo2-dev \
+  libcairo2-dev \
 	libxt-dev \
 	openjdk-11-jdk-headless \
 	\
-    libx11-6 \
-    libxss1 \
-    libxt6 \
-    libxext6 \
-    libsm6 \
-    libice6 \
-    xdg-utils \
-    \
-  	mc 
+  libx11-6 \
+  libxss1 \
+  libxt6 \
+  libxext6 \
+  libsm6 \
+  libice6 \
+  xdg-utils \
+  \
+  mc 
 	
 RUN R -e "install.packages('BiocManager')" \
 	&& R -e 'BiocManager::install("flowCore")'  
