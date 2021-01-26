@@ -68,7 +68,7 @@ run.leef.rstudio: dirs
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
-	-v ~/LEEF/00.general.parameter \	
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
 	\
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
@@ -86,7 +86,7 @@ run.leef.bash: dirs
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
-	-v ~/LEEF/00.general.parameter \	
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
 	\
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
@@ -105,7 +105,7 @@ run.leef.R: dirs
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
-	-v ~/LEEF/00.general.parameter \	
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
 	\
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
@@ -128,7 +128,7 @@ run.pipeline.all: dirs
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
-	-v ~/LEEF/00.general.parameter \	
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
 	\
 	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
 	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
@@ -149,7 +149,7 @@ run.pipeline.bemovi: dirs
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
-	-v ~/LEEF/00.general.parameter \	
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
 	\
 	-v ~/LEEF/0.raw.data/$(BEMOVI):/home/rstudio/LEEF/0.raw.data/bemovi \
 	-v ~/LEEF/1.pre-processed.data/$(BEMOVI):/home/rstudio/LEEF/1.pre-processed.data/bemovi \
@@ -169,7 +169,7 @@ test.bemovi: dirs
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
-	-v ~/LEEF/00.general.parameter \	
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
 	\
 	-v ~/LEEF/0.raw.data/$(BEMOVI):/home/rstudio/LEEF/0.raw.data/bemovi \
 	-v ~/LEEF/1.pre-processed.data/$(BEMOVI):/home/rstudio/LEEF/1.pre-processed.data/bemovi \
@@ -190,7 +190,7 @@ run.pipeline.fast: dirs
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
-	-v ~/LEEF/00.general.parameter \	
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
 	\
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
@@ -224,7 +224,7 @@ test.fast: dirs
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
-	-v ~/LEEF/00.general.parameter \	
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
 	\
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
