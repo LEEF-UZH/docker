@@ -24,10 +24,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
   \
   mc 
 	
-RUN R -e "install.packages('BiocManager')" \
-	&& R -e 'BiocManager::install("flowCore")'  
+## CRAN Packages
 
-RUN install2.r --error \
+RUN install2.r -n 10 -r https://cloud.r-project.org/ --error \
 	--deps TRUE \
 	ps \ 
 	utf8 \ 
@@ -77,7 +76,16 @@ RUN install2.r --error \
 	randomForest \
 	readxl \
 	progress \
-	cellranger
+	cellranger \ 
+	BH
+	
+## Bioconductor packages
+
+RUN R -e "install.packages('BiocManager')"
+
+RUN R -e 'BiocManager::install("cytolib")'
+RUN  R -e 'BiocManager::install("flowCore")'  
+
 	
 RUN mkdir -p /home/rstudio/LEEF/tools \
 	&& mkdir -p /home/rstudio/LEEF/0.raw.data \
@@ -102,3 +110,11 @@ RUN mkdir -p /home/rstudio/LEEF/tools \
 	\
 	&& wget --no-verbose https://github.com/LEEF-UZH/docker/raw/master/leef/tools/ParticleLinker.jar
 
+##################################################
+##################################################
+##                                              ##
+##          NO EDITING ABOVE                    ##
+## Add new dependencies in RUN statements below ##
+##                                              ##
+##################################################
+##################################################
