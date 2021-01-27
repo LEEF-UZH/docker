@@ -118,3 +118,9 @@ RUN mkdir -p /home/rstudio/LEEF/tools \
 ##                                              ##
 ##################################################
 ##################################################
+
+RUN install2.r -n 10 -r https://cloud.r-project.org/ --error \
+	--deps TRUE \
+	dplyr
+	
+ 
