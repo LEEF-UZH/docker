@@ -13,8 +13,8 @@ TS = $(shell /bin/date '+%Y-%m-%d--%H-%M-%S')
 ######################################	
 
 dirs:
-	mkdir -p ~/LEFF/00.general.parameter
-	mkdir -p ~/LEEF/0.raw.data
+#	mkdir -p ~/LEFF/00.general.parameter
+#	mkdir -p ~/LEEF/0.raw.data
 	mkdir -p ~/LEEF/1.pre-processed.data
 	mkdir -p ~/LEEF/2.extracted.data
 	mkdir -p ~/LEEF/3.archived.data
