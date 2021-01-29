@@ -87,6 +87,11 @@ run_archivers(
 message("done\n")
 message("\n########################################################\n")
 
+file.rename(
+  from = file.path( getOption("LEEF")$directories$extracted, "bemovi" ),
+  to =   file.path( getOption("LEEF")$directories$extracted, paste0("bemovi", argv[[1]]) )
+)
+
 message("\n########################################################\n")
 message("\nadding...\n")
 run_additors()
