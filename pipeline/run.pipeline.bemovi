@@ -87,14 +87,13 @@ run_archivers(
 message("done\n")
 message("\n########################################################\n")
 
-file.rename(
-  from = file.path( getOption("LEEF")$directories$extracted, "bemovi" ),
-  to =   file.path( getOption("LEEF")$directories$extracted, paste0("bemovi", argv[[1]]) )
-)
-
 message("\n########################################################\n")
 message("\nadding...\n")
-run_additors()
+LEEF.backend.sqlite::additor_sqlite_multiple_db(
+  input = getOption("LEEF")$directories$extracted,
+  output = getOption("LEEF")$directories$backend,
+  tn_postfix = argv[[1]]
+)
 message("done\n")
 message("\n########################################################\n")
 
