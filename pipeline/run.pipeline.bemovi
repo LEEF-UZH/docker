@@ -10,22 +10,6 @@ if (is.null(argv) | length(argv) != 1) {
   q()
 }
 
-# Copy bemovi.extract.argv[[1]].yml file --------------------------------------------------------------------
-
-bec_template <- file.path( "/", "home", "rstudio", "LEEF", "pipeline", paste0("bemovi_extract.", argv[[1]], ".yml") )
-bec          <- file.path( "/", "home", "rstudio", "LEEF", "0.raw.data", "bemovi", paste0("bemovi_extract.yml") )
-
-if (file.exists(bec_template)) {
-	message(">>> Using ", paste0("bemovi_extract.", argv[[1]], ".yml"), " template.")
-	file.copy(
-		from = bec_template,
-		to = bec,
-		overwrite = TRUE
-	)
-} else {
-	stop("Missing ", paste0("bemovi_extract.", argv[[1]], ".yml"), "file!")
-}
-
 #  --------------------------------------------------------------------
 
 pipeline <- normalizePath(
