@@ -4,20 +4,26 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ## ## bemovi.mag/.25 ###################
 LF=./../LEEF/log.$TS.bemovi.mag.25
-make run.pipeline.bemovi ID=mag.25 > >(tee -a $LF.txt) 2> >(tee -a $LF.error.txt >&2)
+LFERR=$LF.error.txt
+LFDONE=$LF.error.txt
+LF=$LF.txt
+make run.pipeline.bemovi ID=mag.25 > >(tee -a $LF) 2> >(tee -a $LFERR >&2)
 echo  >> $LF
-echo "##################################" >> $LF
-echo "## BEGIN: " $TS "##" >> $LF
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
-echo "##################################" >> $LF
+echo "##################################" >> $LFDONE
+echo "## BEGIN: " $TS "##" >> $LFDONE
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
+echo "##################################" >> $LFDONE
 ##
 ##
 ## ## bemovi.mag/.16 ###################
 LF=./../LEEF/log.$TS.bemovi.mag.16
-make run.pipeline.bemovi ID=mag.16 > >(tee -a $LF.txt) 2> >(tee -a $LF.error.txt >&2)
+LFERR=$LF.error.txt
+LFDONE=$LF.error.txt
+LF=$LF.txt
+make run.pipeline.bemovi ID=mag.16 > >(tee -a $LF) 2> >(tee -a $LFERR >&2)
 echo  >> $LF
-echo "##################################" >> $LF
-echo "## BEGIN: " $TS "##" >> $LF
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
-echo "##################################" >> $LF
+echo "##################################" >> $LFDONE
+echo "## BEGIN: " $TS "##" >> $LFDONE
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFLFDONE
+echo "##################################" >> $LFLFDONE
 ##

@@ -4,10 +4,13 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ## ## fast (all but bemovi) ##########
 LF=./../LEEF/log.$TS.fast
+LFERR=$LF.error.txt
+LFDONE=$LF.error.txt
+LF=$LF.txt
 # make run.pipeline.fast &> $LF
-make run.pipeline.fast > >(tee -a $LF.txt) 2> >(tee -a $LF.error.txt >&2)
+make run.pipeline.fast > >(tee -a $LFt) 2> >(tee -a $LFERROR >&2)
 echo  >> $LF
-echo "##################################" >> $LF
-echo "## BEGIN: " $TS "##" >> $LF
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
-echo "##################################" >> $LF
+echo "##################################" >> $LFDONE
+echo "## BEGIN: " $TS "##" >> $LFDONE
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
+echo "##################################" >> $LFDONE
