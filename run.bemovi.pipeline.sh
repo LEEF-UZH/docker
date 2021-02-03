@@ -7,9 +7,10 @@ LF=./../LEEF/log.$TS.bemovi.mag.25
 LFERR=$LF.error.txt
 LFDONE=$LF.done.txt
 LF=$LF.txt
+#
 make run.pipeline.bemovi ID=mag.25 > >(tee -a $LF) 2> >(tee -a $LFERR >&2)
-echo  >> $LF
-echo "##################################" >> $LFDONE
+echo
+echo "##################################" > $LFDONE
 echo "## BEGIN: " $TS "##" >> $LFDONE
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
 echo "##################################" >> $LFDONE
@@ -18,12 +19,13 @@ echo "##################################" >> $LFDONE
 ## ## bemovi.mag/.16 ###################
 LF=./../LEEF/log.$TS.bemovi.mag.16
 LFERR=$LF.error.txt
-LFDONE=$LF.error.txt
+LFDONE=$LF.done.txt
 LF=$LF.txt
+#
 make run.pipeline.bemovi ID=mag.16 > >(tee -a $LF) 2> >(tee -a $LFERR >&2)
-echo  >> $LF
-echo "##################################" >> $LFDONE
+echo  
+echo "##################################" > $LFDONE
 echo "## BEGIN: " $TS "##" >> $LFDONE
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFLFDONE
-echo "##################################" >> $LFLFDONE
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
+echo "##################################" >> $LFDONE
 ##
