@@ -29,3 +29,7 @@ echo "## BEGIN: " $TS "##" >> $LFDONE
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
 echo "##################################" >> $LFDONE
 ##
+sudo chown -R ubuntu:ubuntu ./../LEEF/00.*
+sudo chown -R ubuntu:ubuntu ./../LEEF/0.*
+sudo chown -R ubuntu:ubuntu ./../LEEF/1*
+sudo chown -R ubuntu:ubuntu ./../LEEF/2.*
