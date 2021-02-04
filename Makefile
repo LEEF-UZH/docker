@@ -125,7 +125,6 @@ pipeline.all: run.pipeline.all
 run.pipeline.all: dirs
 	docker run \
 	--rm \
-	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
@@ -146,7 +145,6 @@ pipeline.bemovi: run.pipeline.bemovi
 run.pipeline.bemovi: dirs
 	docker run \
 	--rm \
-	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
@@ -187,7 +185,6 @@ pipeline.fast: run.pipeline.fast
 run.pipeline.fast: dirs
 	docker run \
 	--rm \
-	-p 8787:8787 \
 	-e PASSWORD=none \
 	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
