@@ -8,8 +8,6 @@
 # Folder structure
 ##################################
 
-video.description.folder: 0 - video description
-video.description.file: video.description.txt
 raw.video.folder: 1 - raw
 particle.data.folder: 2 - particle data cropped
 particle: particle.rds
@@ -20,8 +18,7 @@ temp.overlay.folder: 4a - temp overlays cropped
 merged.data.folder: 5 - merged data
 morph_mvt: Morph_mvt_cropped.rds
 master: Master_cropped.rds
-
-mean_density: Mean_density_per_ml.rds
+mean_density: Mean_density_per_ml_cropped.rds
 
 ##################################
 # General Parameter
