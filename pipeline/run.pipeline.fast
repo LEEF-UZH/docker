@@ -20,6 +20,13 @@ options(warn = 1)
 
 library(LEEF)
 
+message("\n########################################################\n")
+message("\n########################################################\n")
+message("\nLEEF Package Info ...\n")
+message(list_LEEF_packages(versions = TRUE) %>% paste(collapse = "\n") 
+message("\n########################################################\n")
+message("\n########################################################\n")
+
 LEEF::init_LEEF(config_file = pipeline)
 
 LEEF::process(process = FALSE)
