@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.0.2
+FROM rocker/rstudio:4.1.0
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
