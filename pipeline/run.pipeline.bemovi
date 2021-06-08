@@ -13,12 +13,12 @@ if (is.null(argv) | length(argv) != 1) {
 #  --------------------------------------------------------------------
 
 pipeline <- normalizePath(
-	file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.bemovi.yml"),
-	mustWork = FALSE
+  file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.bemovi.yml"),
+  mustWork = FALSE
 )
 
 if (!file.exists(pipeline)) {
-	stop(argv[[1]], ": ", " pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
+  stop(argv[[1]], ": ", " pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
 }
 
 setwd("/home/rstudio/LEEF")
@@ -32,7 +32,7 @@ message("\n########################################################\n")
 message("\n########################################################\n")
 message("\nLEEF Package Info ...\n")
 pkgs <- list_LEEF_packages(versions = TRUE)
-message( paste(pkgs, collapse = "\n") )
+message(paste(pkgs, collapse = "\n"))
 message("\n########################################################\n")
 message("\n########################################################\n")
 
@@ -72,7 +72,7 @@ message("\n########################################################\n")
 
 message("\n########################################################\n")
 message("\narchiving extracted data ...\n")
-run_archivers(
+LEEF.archive.default::run_archive_none(
   input = getOption("LEEF")$directories$extracted,
   output = file.path(getOption("LEEF")$directories$archive, "extracted")
 )
