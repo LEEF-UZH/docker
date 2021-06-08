@@ -77,7 +77,11 @@ RUN install2.r -n 10 -r https://cloud.r-project.org/ --error \
 	readxl \
 	progress \
 	cellranger \ 
-	BH
+	BH \
+	proxy \
+	e1071 \
+	loggit
+	
 	
 ## Bioconductor packages
 
