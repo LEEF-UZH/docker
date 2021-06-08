@@ -125,9 +125,10 @@ java.path: ~
 to.data: ~
 to.particlelinker: ~
 
-showinf: showinf
-bfconvert: bfconvert
-ffmpeg: ffmpeg
+showinf: tools/bftools/showinf
+bfconvert: tools/bftools/bfconvert
+ffmpeg: tools/ffmpeg
+
 
 ##################################
 # The End
