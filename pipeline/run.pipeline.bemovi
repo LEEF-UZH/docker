@@ -72,7 +72,7 @@ message("\n########################################################\n")
 
 message("\n########################################################\n")
 message("\narchiving extracted data ...\n")
-LEEF.archive.default::run_archive_tar.gz(
+LEEF.archive.default::run_archive_none(
   input = getOption("LEEF")$directories$extracted,
   output = file.path(getOption("LEEF")$directories$archive, "extracted")
 )
