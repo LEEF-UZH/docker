@@ -66,18 +66,7 @@ message("\n########################################################\n")
 message("\narchiving extracted data ...\n")
 message("     ", getOption("LEEF")$directories$extracted)
 message("     ", file.path(getOption("LEEF")$directories$archive, "extracted"))
-LEEF.archive.default::run_archive_tar_subdir(
-  input = getOption("LEEF")$directories$extracted,
-  output = file.path(getOption("LEEF")$directories$archive, "extracted")
-)
-message("done\n")
-message("\n########################################################\n")
-
-message("\n########################################################\n")
-message("\narchiving extracted data ...\n")
-message("     ", getOption("LEEF")$directories$extracted)
-message("     ", file.path(getOption("LEEF")$directories$archive, "extracted"))
-LEEF.archive.default::run_archive_tar.gz_subdir(
+LEEF.archive.default::run_archive_none(
   input = getOption("LEEF")$directories$extracted,
   output = file.path(getOption("LEEF")$directories$archive, "extracted")
 )
