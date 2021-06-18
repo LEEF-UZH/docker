@@ -42,7 +42,7 @@ LEEF::process(process = FALSE)
 
 message("\n########################################################\n")
 message("\narchiving raw data ...\n")
-LEEF.archive.default::run_archive_none(
+LEEF.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$raw,
   output = file.path(getOption("LEEF")$directories$archive, "raw")
 )
@@ -57,7 +57,7 @@ message("\n########################################################\n")
 
 message("\n########################################################\n")
 message("\narchiving pre-processed data...\n")
-LEEF.archive.default::run_archive_none(
+LEEF.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$pre_processed,
   output = file.path(getOption("LEEF")$directories$archive, "pre_processed")
 )
@@ -72,7 +72,7 @@ message("\n########################################################\n")
 
 message("\n########################################################\n")
 message("\narchiving extracted data ...\n")
-LEEF.archive.default::run_archive_none(
+LEEF.archive.default::run_archive_none_subdir()
   input = getOption("LEEF")$directories$extracted,
   output = file.path(getOption("LEEF")$directories$archive, "extracted")
 )
