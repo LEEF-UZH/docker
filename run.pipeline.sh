@@ -6,3 +6,5 @@ sudo chown -R ubuntu:ubuntu ./../LEEF/00.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/0.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/1*
 sudo chown -R ubuntu:ubuntu ./../LEEF/2.*
+sudo chmod -R +rx ./3.*
+sudo chmod -R +rx ./9.*
