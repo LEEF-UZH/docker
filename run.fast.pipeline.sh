@@ -14,6 +14,10 @@ echo "##################################" > $LFDONE
 echo "## BEGIN: " $TS "##" >> $LFDONE
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
 echo "##################################" >> $LFDONE
+if [ -s $LFERROR ]
+then
+        rm -f $LFERROR
+fi
 ##
 sudo chown -R ubuntu:ubuntu ./../LEEF/00.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/0.*
@@ -21,3 +25,5 @@ sudo chown -R ubuntu:ubuntu ./../LEEF/1*
 sudo chown -R ubuntu:ubuntu ./../LEEF/2.*
 sudo chmod -R +rx ./3.*
 sudo chmod -R +rx ./9.*
+
+

@@ -14,6 +14,10 @@ echo "##################################" > $LFDONE
 echo "## BEGIN: " $TS "##" >> $LFDONE
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
 echo "##################################" >> $LFDONE
+if [ -s $LFERROR ]
+then
+        rm -f $LFERROR
+fi
 ##
 ##
 ## ## bemovi.mag/.16 ###################
@@ -28,7 +32,10 @@ echo "##################################" > $LFDONE
 echo "## BEGIN: " $TS "##" >> $LFDONE
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
 echo "##################################" >> $LFDONE
-##
+if [ -s $LFERROR ]
+then
+        rm -f $LFERROR
+fi##
 sudo chown -R ubuntu:ubuntu ./../LEEF/00.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/0.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/1*
