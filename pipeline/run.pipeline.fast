@@ -3,12 +3,12 @@
 ## Define pipeline .yml file
 
 pipeline <- normalizePath(
-	file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.fast.yml"),
-	mustWork = FALSE
+  file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.fast.yml"),
+  mustWork = FALSE
 )
 
 if (!file.exists(pipeline)) {
-	stop("pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
+  stop("pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
 }
 
 ## And Run!
@@ -24,7 +24,7 @@ message("\n########################################################\n")
 message("\n########################################################\n")
 message("\nLEEF Package Info ...\n")
 pkgs <- list_LEEF_packages(versions = TRUE)
-message( paste(pkgs, collapse = "\n") )
+message(paste(pkgs, collapse = "\n"))
 message("\n########################################################\n")
 message("\n########################################################\n")
 
