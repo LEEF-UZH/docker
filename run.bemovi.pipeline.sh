@@ -35,7 +35,8 @@ echo "##################################" >> $LFDONE
 if [ -s $LFERROR ]
 then
         rm -f $LFERROR
-fi##
+fi
+##
 sudo chown -R ubuntu:ubuntu ./../LEEF/00.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/0.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/1*
