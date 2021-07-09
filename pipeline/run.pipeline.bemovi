@@ -90,7 +90,7 @@ message("done\n")
 message("\n########################################################\n")
 
 message("\n########################################################\n")
-message("\narchiving extracted data ...\n")
+message("\narchiving backend ...\n")
 LEEF.archive.default::run_archive_tar.gz(
   input = getOption("LEEF")$directories$backend,
   output = file.path(getOption("LEEF")$directories$archive, "backend")
