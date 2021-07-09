@@ -89,3 +89,11 @@ LEEF.backend.sqlite::additor_sqlite_multiple_db(
 message("done\n")
 message("\n########################################################\n")
 
+message("\n########################################################\n")
+message("\narchiving extracted data ...\n")
+LEEF.archive.default::run_archive_tar.gz(
+  input = getOption("LEEF")$directories$backend,
+  output = file.path(getOption("LEEF")$directories$archive, "backend")
+)
+message("done\n")
+message("\n########################################################\n")
