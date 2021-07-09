@@ -82,7 +82,7 @@ message("\n########################################################\n")
 
 message("\n########################################################\n")
 message("\narchiving backend ...\n")
-LEEF.archive.default::run_archive_tar.gz(
+LEEF.archive.default::run_archive_none(
   input = getOption("LEEF")$directories$backend,
   output = file.path(getOption("LEEF")$directories$archive, "backend_fast_only")
 )
