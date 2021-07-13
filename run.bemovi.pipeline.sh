@@ -44,3 +44,4 @@ sudo chown -R ubuntu:ubuntu ./../LEEF/2.*
 sudo chmod -R +rx ./../LEEF/3.*
 sudo chmod -R +rx ./../LEEF/9.*
 
+echo "The pipeline on `hostname` has finished processing bemovi measurements." | mail -s "LEEF-PIPELINE: bemovi finished" -r Rainer.Krug@uzh.ch Rainer.Krug@uzh.ch
