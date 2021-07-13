@@ -50,11 +50,11 @@ sudo chmod -R +rx ./../LEEF/9.*
 ##
 duration=$SECONDS
 echo "$(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed."
-echo "The pipeline on `hostname` has finished.
+echo "The bemovi pipeline on `hostname` has finished.
 
 $(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed." | \
 mail \
-	-s "LEEF-PIPELINE: all finished" \
+	-s "LEEF-PIPELINE: bemovi finished" \
 	-r Rainer.Krug@uzh.ch \
 	Rainer.Krug@uzh.ch
 	
