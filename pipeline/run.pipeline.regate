@@ -1,0 +1,109 @@
+#!/usr/bin/env r
+
+## Define pipeline .yml file
+
+pipeline <- normalizePath(
+  file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.fast.yml"),
+  mustWork = FALSE
+)
+
+if (!file.exists(pipeline)) {
+  stop("pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
+}
+
+## And Run!
+
+setwd("/home/rstudio/LEEF")
+
+options(mc.cores = parallel::detectCores() - 1)
+options(warn = 1)
+
+library(LEEF)
+
+message("\n########################################################\n")
+message("\n########################################################\n")
+message("\nLEEF Package Info ...\n")
+pkgs <- list_LEEF_packages(versions = TRUE)
+message(paste(pkgs, collapse = "\n"))
+message("\n########################################################\n")
+message("\n########################################################\n")
+
+LEEF::init_LEEF(config_file = pipeline)
+
+LEEF::process(process = FALSE)
+
+message("\n########################################################\n")
+message("\narchiving raw data ...\n")
+LEEF.archive.default::run_archive_none_subdir(
+  input = getOption("LEEF")$directories$raw,
+  output = file.path(getOption("LEEF")$directories$archive, "raw")
+)
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\npre_processing ...\n")
+LEEF.measurement.flowcytometer::pre_processor_flowcytometer(
+  input = getOption("LEEF")$directories$raw,
+  output = getOption("LEEF")$directories$pre_processed
+)
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\narchiving pre-processed data...\n")
+LEEF.archive.default::run_archive_none_subdir(
+  input = getOption("LEEF")$directories$pre_processed,
+  output = file.path(getOption("LEEF")$directories$archive, "pre_processed")
+)
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\nextracting ...\n")
+LEEF.measurement.flowcytometer::extractor_flowcytometer(
+  input = getOption("LEEF")$directories$pre_processed,
+  output = getOption("LEEF")$directories$extracted
+)
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\narchiving extracted data ...\n")
+message("     ", getOption("LEEF")$directories$extracted)
+message("     ", file.path(getOption("LEEF")$directories$archive, "extracted"))
+LEEF.archive.default::run_archive_none_subdir(
+  input = getOption("LEEF")$directories$extracted,
+  output = file.path(getOption("LEEF")$directories$archive, "extracted")
+)
+message("done\n")
+message("\n########################################################\n")
+
+
+message("\n########################################################\n")
+message("\nremoving timestamp flowcytometer from backend...\n")
+
+
+timestamp <- yaml::read_yaml(file.path(getOption("LEEF")$directories$extracted, "flowcytometer", "sample_metadata.yml"))$timestamp
+LEEF.backend.sqlite::remove_data(
+  db = file.path(getOption("LEEF")$directories$backend, "LEEF.RRD.sqlite"),
+  timestamp = timestamp,
+  method = "flowcytometer"
+)
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\nadding...\n")
+run_additors()
+message("done\n")
+message("\n########################################################\n")
+
+message("\n########################################################\n")
+message("\narchiving backend ...\n")
+LEEF.archive.default::run_archive_none(
+  input = getOption("LEEF")$directories$backend,
+  output = file.path(getOption("LEEF")$directories$archive, "backend_fast_only")
+)
+message("done\n")
+message("\n########################################################\n")

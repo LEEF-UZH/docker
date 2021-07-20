@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.0.2
+FROM rocker/rstudio:4.1.0
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
@@ -57,6 +57,7 @@ RUN install2.r -n 10 -r https://cloud.r-project.org/ --error \
 	rprojroot \ 
   rstudioapi \ 
 	dplyr \ 
+	plyr \
   readr \ 
 	tiff \ 
 	openssl \ 
@@ -77,7 +78,11 @@ RUN install2.r -n 10 -r https://cloud.r-project.org/ --error \
 	readxl \
 	progress \
 	cellranger \ 
-	BH
+	BH \
+	proxy \
+	e1071 \
+	loggit
+	
 	
 ## Bioconductor packages
 
@@ -119,8 +124,5 @@ RUN mkdir -p /home/rstudio/LEEF/tools \
 ##################################################
 ##################################################
 
-RUN install2.r -n 10 -r https://cloud.r-project.org/ --error \
-	--deps TRUE \
-	plyr
 	
  

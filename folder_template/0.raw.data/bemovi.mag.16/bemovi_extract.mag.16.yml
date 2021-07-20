@@ -8,6 +8,8 @@
 # Folder structure
 ##################################
 
+video.description.folder: 0 - video description
+video.description.file: video.description.txt
 raw.video.folder: 1 - raw
 particle.data.folder: 2 - particle data
 particle: particle.rds
@@ -16,13 +18,15 @@ trajectory: trajectory.rds
 overlay.folder: 4 - overlays
 temp.overlay.folder: 4a - temp overlays
 merged.data.folder: 5 - merged data
-morph_mvt: Morph_mvt.rds
 master: Master.rds
-mean_density: Mean_density_per_ml.rds
+morph_mvt: Morph_mvt.rds
+merged.data.unfiltered.folder: 6 - merged data unfiltered
 
 ##################################
 # General Parameter
 ##################################
+
+mean_density: Mean_density_per_ml.rds
 
 memory: 10000.0
 timeout: 7200
@@ -118,6 +122,10 @@ java.path: ~
 
 to.data: ~
 to.particlelinker: ~
+
+showinf: showinf
+bfconvert: bfconvert
+ffmpeg: ffmpeg
 
 ##################################
 # The End

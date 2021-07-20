@@ -1,0 +1,35 @@
+#########################
+### Names of samplers ###
+#########################
+
+submitter: Rainer M Krug - pipeline
+responsible_sampler: <<TO BE ENTERED>>
+bemovi_samples: <<TO BE ENTERED>>
+flowcam_samples: <<TO BE ENTERED>>
+flowcytometer_samples: <<TO BE ENTERED>>
+manual_count_smples: <<TO BE ENTERED>>
+o2meter_sampels: <<TO BE ENTERED>>
+
+#########################
+### sampling day      ###
+### in the format     ###
+### YYYYMMDD          ###
+#########################
+
+timestamp: <<TO BE ENTERED>>
+
+#########################
+### General Parameter ###
+#########################
+
+name: LEEF
+description: LEEF Data from an long term experiment. Some more detaled info has to
+  follow.
+
+#########################
+### Do Not Edit Below ###
+#########################
+
+doi: <<AUTOMATICALLY>>
+hash: <<AUTOMATICALLY>>
+

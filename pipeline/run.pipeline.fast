@@ -3,12 +3,12 @@
 ## Define pipeline .yml file
 
 pipeline <- normalizePath(
-	file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.fast.yml"),
-	mustWork = FALSE
+  file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.fast.yml"),
+  mustWork = FALSE
 )
 
 if (!file.exists(pipeline)) {
-	stop("pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
+  stop("pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
 }
 
 ## And Run!
@@ -24,7 +24,7 @@ message("\n########################################################\n")
 message("\n########################################################\n")
 message("\nLEEF Package Info ...\n")
 pkgs <- list_LEEF_packages(versions = TRUE)
-message( paste(pkgs, collapse = "\n") )
+message(paste(pkgs, collapse = "\n"))
 message("\n########################################################\n")
 message("\n########################################################\n")
 
@@ -34,7 +34,7 @@ LEEF::process(process = FALSE)
 
 message("\n########################################################\n")
 message("\narchiving raw data ...\n")
-LEEF.archive.default::run_archive_none(
+LEEF.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$raw,
   output = file.path(getOption("LEEF")$directories$archive, "raw")
 )
@@ -49,7 +49,7 @@ message("\n########################################################\n")
 
 message("\n########################################################\n")
 message("\narchiving pre-processed data...\n")
-LEEF.archive.default::run_archive_tar.gz(
+LEEF.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$pre_processed,
   output = file.path(getOption("LEEF")$directories$archive, "pre_processed")
 )
@@ -64,12 +64,15 @@ message("\n########################################################\n")
 
 message("\n########################################################\n")
 message("\narchiving extracted data ...\n")
-LEEF.archive.default::run_archive_tar.gz(
+message("     ", getOption("LEEF")$directories$extracted)
+message("     ", file.path(getOption("LEEF")$directories$archive, "extracted"))
+LEEF.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$extracted,
   output = file.path(getOption("LEEF")$directories$archive, "extracted")
 )
 message("done\n")
 message("\n########################################################\n")
+
 
 message("\n########################################################\n")
 message("\nadding...\n")
@@ -77,4 +80,11 @@ run_additors()
 message("done\n")
 message("\n########################################################\n")
 
-
+message("\n########################################################\n")
+message("\narchiving backend ...\n")
+LEEF.archive.default::run_archive_none(
+  input = getOption("LEEF")$directories$backend,
+  output = file.path(getOption("LEEF")$directories$archive, "backend_fast_only")
+)
+message("done\n")
+message("\n########################################################\n")
