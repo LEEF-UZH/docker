@@ -94,7 +94,6 @@ classifier_increasing: "svm_video_classifiers_increasing_16x_best_available.rds"
 
 species_tracked:  
 - Coleps_irchel
-- Coleps_viridis
 - Colpidium
 - Stylonychia1
 - Stylonychia2
