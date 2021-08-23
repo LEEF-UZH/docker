@@ -2,13 +2,13 @@
 TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ##
-## ## fast (all but bemovi) ##########
 LF=./../LEEF/log.$TS.fast
 LFERR=$LF.error.txt
 LFDONE=$LF.done.txt
 LF=$LF.txt
-# make run.pipeline.fast &> $LF
-make run.pipeline.regate > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)
+##
+make run.pipeline.extract.flowcytometer > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)
+##
 echo
 echo "##################################" > $LFDONE
 echo "## BEGIN: " $TS "##" >> $LFDONE

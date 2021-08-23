@@ -215,6 +215,30 @@ run.pipeline.fast: dirs
 	leefuzh/leef \
 	/home/rstudio/LEEF/pipeline/run.pipeline.fast
 
+pipeline.flowcam.extract: run.pipeline.flowcam.extract
+run.pipeline.flowcam.extract: dirs
+	docker run \
+	--rm \
+	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
+	\
+	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
+	\
+	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
+	\
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	\
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	\
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
+	\
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	/home/rstudio/LEEF/pipeline/run.pipeline.flowcam.extract
+
+
 test.fast: dirs
 	docker run \
 	--rm \
