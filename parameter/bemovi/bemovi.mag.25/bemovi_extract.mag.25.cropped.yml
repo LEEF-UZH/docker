@@ -92,16 +92,12 @@ crop_pixels:
 classifier_constant: "svm_video_classifiers_18c_25x.rds"
 classifier_increasing: "svm_video_classifiers_increasing_25x_best_available.rds"
 
-species_tracked:  
-- Coleps_irchel
-- Coleps_viridis
-- Colpidium
-- Stylonychia1
-- Stylonychia2
-- Didinium
-- Paramecium_caudatum
-- Paramecium_bursaria
-- Euplotes
+species_tracked:
+- Dexiostoma
+- Loxocephallus
+- Tetrahymena
+- Debris_and_other
+- Cryptomonas
 
 # cropping.factor: area original / area cropped
 
