@@ -33,7 +33,7 @@ echo "FROM BACKEND : $FROM_BACKEND"
 echo "TO CONTAINER : $TO_BACKEND_CONTAINER"
 echo 
 
-source ./restic/swift;
+source /home/ubuntu/restic/swift;
 
 echo "####################################";
 echo "## uploading $FROM_ARCHIVED";
