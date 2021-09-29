@@ -19,10 +19,10 @@ fi
 ############
 ############
 
-FROM_ARCHIVED=./LEEF/3.archived.data
+FROM_ARCHIVED=/home/ubuntu/LEEF/3.archived.data
 TO_ARCHIVE_CONTAINER=LEEF.archived.data
 
-FROM_BACKEND=./LEEF/9.backend
+FROM_BACKEND=/home/ubuntu/LEEF/9.backend
 TO_BACKEND_CONTAINER=LEEF.backend.data
 
 echo
