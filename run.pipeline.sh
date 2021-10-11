@@ -3,7 +3,8 @@
 SECONDS=0
 ##
 ./run.fast.pipeline.sh
-./run.bemovi.pipeline.sh
+./run.bemovi_16.pipeline.sh
+./run.bemovi_25.pipeline.sh
 ##
 sudo chown -R ubuntu:ubuntu ./../LEEF/00.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/0.*
