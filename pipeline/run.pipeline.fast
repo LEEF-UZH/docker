@@ -38,6 +38,10 @@ LEEF.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$raw,
   output = file.path(getOption("LEEF")$directories$archive, "raw")
 )
+LEEF.archive.default::run_archive_none(
+  input = getOption("LEEF")$directories$general.parameter,
+  output = file.path(getOption("LEEF")$directories$archive, "raw")
+)
 message("done\n")
 message("\n########################################################\n")
 
