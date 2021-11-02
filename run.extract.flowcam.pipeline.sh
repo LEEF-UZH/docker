@@ -3,9 +3,9 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ##
 LF=./../LEEF/log.$TS.fast
-LFERR=$LF.error.txt
-LFDONE=$LF.done.txt
-LF=$LF.txt
+LFERR=$LF.error.log
+LFDONE=$LF.done.log
+LF=$LF.log
 ##
 make run.pipeline.extract.flowcam > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)
 ##

@@ -215,6 +215,108 @@ run.pipeline.fast: dirs
 	leefuzh/leef \
 	/home/rstudio/LEEF/pipeline/run.pipeline.fast
 
+pipeline.flowcam: run.pipeline.flowcam
+run.pipeline.flowcam: dirs
+	docker run \
+	--rm \
+	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
+	\
+	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
+	\
+	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
+	\
+	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
+	\
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	\
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	\
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
+	\
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	/home/rstudio/LEEF/pipeline/run.pipeline.fast
+
+pipeline.flowcytometer: run.pipeline.flowcytometer
+run.pipeline.flowcytometer: dirs
+	docker run \
+	--rm \
+	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
+	\
+	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
+	\
+	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
+	\
+	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
+	\
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	\
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	\
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
+	\
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	/home/rstudio/LEEF/pipeline/run.pipeline.flowcytometer
+
+pipeline.manualcount: run.pipeline.manualcount
+run.pipeline.manualcount: dirs
+	docker run \
+	--rm \
+	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
+	\
+	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/manualcount \
+	\
+	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
+	\
+	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/manualcount \
+	\
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	\
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	\
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
+	\
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	/home/rstudio/LEEF/pipeline/run.pipeline.manualcount
+
+pipeline.o2meter: run.pipeline.o2meter
+run.pipeline.o2meter: dirs
+	docker run \
+	--rm \
+	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
+	\
+	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/o2meter \
+	\
+	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
+	\
+	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/o2meter \
+	\
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	\
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	\
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
+	\
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	/home/rstudio/LEEF/pipeline/run.pipeline.o2meter
+	
+	
+
 pipeline.flowcam.extract: run.pipeline.flowcam.extract
 run.pipeline.flowcam.extract: dirs
 	docker run \

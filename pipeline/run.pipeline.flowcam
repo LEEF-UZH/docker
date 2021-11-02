@@ -3,12 +3,12 @@
 ## Define pipeline .yml file
 
 pipeline <- normalizePath(
-  file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.fast.yml"),
+  file.path("/", "home", "rstudio", "LEEF", "pipeline", "pipeline.flowcam.yml"),
   mustWork = FALSE
 )
 
 if (!file.exists(pipeline)) {
-  stop("pipeline.fast.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
+  stop("pipeline.flowcam.yml pipeline config file does not exist in the expected directory `", dirname(pipeline), "/`!")
 }
 
 ## And Run!
