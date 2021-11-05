@@ -273,11 +273,11 @@ run.pipeline.manualcount: dirs
 	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
 	\
-	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/manualcount \
+	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
 	\
-	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
+	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
 	\
-	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/manualcount \
+	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
 	\
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	\
@@ -298,11 +298,11 @@ run.pipeline.o2meter: dirs
 	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
 	\
-	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/o2meter \
+	-v ~/LEEF/0.raw.data/o2meter:/home/rstudio/LEEF/0.raw.data/o2meter \
 	\
-	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
+	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
 	\
-	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/o2meter \
+	-v ~/LEEF/2.extracted.data/o2meter:/home/rstudio/LEEF/2.extracted.data/o2meter \
 	\
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
 	\
