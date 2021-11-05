@@ -77,7 +77,7 @@ backend_packages:
     name: LEEF.backend.sqlite
     InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.backend.sqlite')
     RegisterCommand: LEEF.backend.sqlite::register()
-'
+
 
 
 # --------------------------------------------------------------------
