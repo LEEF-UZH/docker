@@ -238,7 +238,7 @@ run.pipeline.flowcam: dirs
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline.fast
+	/home/rstudio/LEEF/pipeline/run.pipeline.flowcam
 
 pipeline.flowcytometer: run.pipeline.flowcytometer
 run.pipeline.flowcytometer: dirs
