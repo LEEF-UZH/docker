@@ -8,15 +8,14 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ## ## o2meter ##########
 LF=./../LEEF/log.$TS.o2meter
 LFERR=$LF.error.log
-LFDONE=$LF.done.log
 LF=$LF.log
 # make run.pipeline.o2meter &> $LF
 make run.pipeline.o2meter > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)
 echo
-echo "##################################" > $LFDONE
-echo "## BEGIN: " $TS "##" >> $LFDONE
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
-echo "##################################" >> $LFDONE
+echo "##################################" > $LF
+echo "## BEGIN: " $TS "##" >> $LF
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
+echo "##################################" >> $LF
 if [ -s $LFERROR ]
 then
         rm -f $LFERROR

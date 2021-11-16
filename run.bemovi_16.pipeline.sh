@@ -3,21 +3,19 @@
 SECONDS=0
 ##
 TS=$(date '+%Y-%m-%d--%H-%M-%S')
-
 ##
 ##
 ## ## bemovi.mag/.16 ###################
 LF=./../LEEF/log.$TS.bemovi.mag.16
 LFERR=$LF.error.log
-LFDONE=$LF.done.log
 LF=$LF.log
 #
 make run.pipeline.bemovi ID=mag.16 > >(tee -a $LF) 2> >(tee -a $LFERR >&2)
 echo  
-echo "##################################" > $LFDONE
-echo "## BEGIN: " $TS "##" >> $LFDONE
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
-echo "##################################" >> $LFDONE
+echo "##################################" > $LF
+echo "## BEGIN: " $TS "##" >> $LF
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
+echo "##################################" >> $LF
 if [ -s $LFERROR ]
 then
         rm -f $LFERROR

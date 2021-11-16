@@ -8,15 +8,14 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ## ## manualcount ##########
 LF=./../LEEF/log.$TS.manualcount
 LFERR=$LF.error.log
-LFDONE=$LF.done.log
 LF=$LF.log
 # make run.pipeline.manualcount &> $LF
 make run.pipeline.manualcount > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)
 echo
-echo "##################################" > $LFDONE
-echo "## BEGIN: " $TS "##" >> $LFDONE
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
-echo "##################################" >> $LFDONE
+echo "##################################" > $LF
+echo "## BEGIN: " $TS "##" >> $LF
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
+echo "##################################" >> $LF
 if [ -s $LFERROR ]
 then
         rm -f $LFERROR

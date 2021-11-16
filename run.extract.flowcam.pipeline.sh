@@ -4,16 +4,15 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 LF=./../LEEF/log.$TS.fast
 LFERR=$LF.error.log
-LFDONE=$LF.done.log
 LF=$LF.log
 ##
 make run.pipeline.extract.flowcam > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)
 ##
 echo
-echo "##################################" > $LFDONE
-echo "## BEGIN: " $TS "##" >> $LFDONE
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
-echo "##################################" >> $LFDONE
+echo "##################################" > $LF
+echo "## BEGIN: " $TS "##" >> $LF
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
+echo "##################################" >> $LF
 if [ -s $LFERROR ]
 then
         rm -f $LFERROR

@@ -8,20 +8,18 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ## ## bemovi.mag/.25 ###################
 LF=./../LEEF/log.$TS.bemovi.mag.25
 LFERR=$LF.error.log
-LFDONE=$LF.done.log
 LF=$LF.log
 #
 make run.pipeline.bemovi ID=mag.25 > >(tee -a $LF) 2> >(tee -a $LFERR >&2)
 echo
-echo "##################################" > $LFDONE
-echo "## BEGIN: " $TS "##" >> $LFDONE
-echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LFDONE
-echo "##################################" >> $LFDONE
+echo "##################################" > $LF
+echo "## BEGIN: " $TS "##" >> $LF
+echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
+echo "##################################" >> $LF
 if [ -s $LFERROR ]
 then
         rm -f $LFERROR
 fi
-
 ##
 sudo chown -R ubuntu:ubuntu ./../LEEF/00.*
 sudo chown -R ubuntu:ubuntu ./../LEEF/0.*
