@@ -12,7 +12,7 @@ LF=$LF.log
 # make run.pipeline.flowcam &> $LF
 make run.pipeline.flowcam > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)
 echo
-echo "##################################" > $LF
+echo "##################################" >> $LF
 echo "## BEGIN: " $TS "##" >> $LF
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
 echo "##################################" >> $LF
