@@ -40,3 +40,4 @@ mail \
 	Rainer.Krug@uzh.ch
 	
 
+tail -50  $LF | mail -s "LEEF-PIPELINE: flowcam finished" Rainer.Krug@uzh.ch

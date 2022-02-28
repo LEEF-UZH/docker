@@ -40,3 +40,4 @@ mail \
 	Rainer.Krug@uzh.ch
 	
 
+tail -50  $LF | mail -s "LEEF-PIPELINE: flowcytometer finished" Rainer.Krug@uzh.ch

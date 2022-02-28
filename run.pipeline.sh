@@ -19,6 +19,7 @@ sudo chmod -R +rx ./../LEEF/9.*
 duration=$SECONDS
 echo "$(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed."
 $(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed." | \
+
 mail \
 	-s "LEEF-PIPELINE: all finished" \
 	-r Rainer.Krug@uzh.ch \

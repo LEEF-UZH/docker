@@ -39,3 +39,4 @@ mail \
 	-r Rainer.Krug@uzh.ch \
 	Rainer.Krug@uzh.ch
 	
+tail -50  $LF | mail -s "LEEF-PIPELINE: bemovi mag16 finished" Rainer.Krug@uzh.ch
