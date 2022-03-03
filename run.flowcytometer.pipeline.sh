@@ -30,14 +30,8 @@ sudo chmod -R +rx ./../LEEF/9.*
 
 ##
 duration=$SECONDS
-echo "$(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed."
-echo "The flowcytometer pipeline on `hostname` has finished.
 
-$(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed." | \
-mail \
-	-s "LEEF-PIPELINE: flowcytometer finished" \
-	-r Rainer.Krug@uzh.ch \
-	Rainer.Krug@uzh.ch
-	
+echo "$(($duration / 3600)) hours, $((($duration / 60) % 60)) minutes and $(($duration % 60)) seconds elapsed."  >> $LF
+echo "The flowcytometer pipeline on `hostname` has finished."  >> $LF
 
 tail -50  $LF | mail -s "LEEF-PIPELINE: flowcytometer finished" Rainer.Krug@uzh.ch
