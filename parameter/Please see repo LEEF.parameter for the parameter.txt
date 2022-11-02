@@ -1,3 +1,0 @@
-The parameters have been moved!
-
-Please see the repo `LEEF.parameter` for the parameter
