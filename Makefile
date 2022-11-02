@@ -27,19 +27,18 @@ dirs:
 #################################	
 
 leef.base: .PHONY
-	docker build --tag leefuzh/leef.base:latest leef.base
+	docker build --tag leefuzh/leef-2.base:latest leef.base
 
 leef.base.force: .PHONY
-	docker build --no-cache	--tag leefuzh/leef.base:latest leef.base
+	docker build --no-cache	--tag leefuzh/leef-2.base:latest leef.base
 
 build: leef
 leef: .PHONY
-	docker build --tag leefuzh/leef:latest leef
+	docker build --tag leefuzh/leef-2:latest leef
 	
-build.force: leef.force
+build.forc: leef.force
 leef.force: .PHONY
-	docker build --no-cache	--tag leefuzh/leef:latest leef
-	
+	docker build --no-cache	--tag leefuzh/leef-2:latest leef
 	
 #################################	
 ##### pull 					#####
@@ -189,16 +188,19 @@ run.pipeline.fast: dirs
 	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
 	\
+	-v ~/LEEF/0.raw.data/conductivity:/home/rstudio/LEEF/0.raw.data/conductivity \
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
 	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
 	-v ~/LEEF/0.raw.data/o2meter:/home/rstudio/LEEF/0.raw.data/o2meter \
 	\
+	-v ~/LEEF/1.pre-processed.data/conductivity:/home/rstudio/LEEF/1.pre-processed.data/conductivity \
 	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
 	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
 	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
 	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
 	\
+	-v ~/LEEF/2.extracted.data/conductivity:/home/rstudio/LEEF/2.extracted.data/conductivity \
 	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
 	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
 	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
@@ -214,6 +216,32 @@ run.pipeline.fast: dirs
 	-ti \
 	leefuzh/leef \
 	/home/rstudio/LEEF/pipeline/run.pipeline.fast
+
+pipeline.conductivity: run.pipeline.conductivity
+run.pipeline.conductivity: dirs
+	docker run \
+	--rm \
+	-e PASSWORD=none \
+	\
+	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
+	\
+	-v ~/LEEF/0.raw.data/conductivity:/home/rstudio/LEEF/0.raw.data/conductivity \
+	\
+	-v ~/LEEF/1.pre-processed.data/conductivity:/home/rstudio/LEEF/1.pre-processed.data/conductivity \
+	\
+	-v ~/LEEF/2.extracted.data/conductivity:/home/rstudio/LEEF/2.extracted.data/conductivity \
+	\
+	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
+	\
+	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
+	\
+	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
+	\
+	--memory-swap=-1 \
+	-ti \
+	leefuzh/leef \
+	/home/rstudio/LEEF/pipeline/run.pipeline.conductivity
+
 
 pipeline.flowcam: run.pipeline.flowcam
 run.pipeline.flowcam: dirs
@@ -349,16 +377,19 @@ test.fast: dirs
 	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
 	\
+	-v ~/LEEF/0.raw.data/conductivity:/home/rstudio/LEEF/0.raw.data/conductivity \
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
 	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
 	-v ~/LEEF/0.raw.data/o2meter:/home/rstudio/LEEF/0.raw.data/o2meter \
 	\
+	-v ~/LEEF/1.pre-processed.data/conductivity:/home/rstudio/LEEF/1.pre-processed.data/conductivity \
 	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
 	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
 	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
 	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
 	\
+	-v ~/LEEF/2.extracted.data/conductivity:/home/rstudio/LEEF/2.extracted.data/conductivity \
 	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
 	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
 	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
