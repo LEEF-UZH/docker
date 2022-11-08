@@ -2,10 +2,11 @@
 ##
 SECONDS=0
 ##
-./run.flowcam.pipeline.sh
-./run.flowcytometer.pipeline.sh
+./run.conductivity.pipeline.sh
 ./run.manualcount.pipeline.sh
 ./run.o2meter.pipeline.sh
+./run.flowcam.pipeline.sh
+./run.flowcytometer.pipeline.sh
 ./run.bemovi_16.pipeline.sh
 ./run.bemovi_25.pipeline.sh
 ##

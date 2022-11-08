@@ -39,7 +39,7 @@ measurement_packages:
   LEEF.measurement.bemovi:
     name: LEEF.measurement.bemovi
     InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.measurement.bemovi')
-    RegisterCommand: LEEF.measurement.bemovi::tools_path(tools_path = '.'); LEEF.measurement.bemovi::register()
+    RegisterCommand: LEEF.measurement.bemovi::tools_path(tools_path = '.'); LEEF.2.measurement.bemovi::register()
 
 
 # --------------------------------------------------------------------

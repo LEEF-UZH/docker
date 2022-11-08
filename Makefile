@@ -26,19 +26,19 @@ dirs:
 ##### build 				#####
 #################################	
 
-leef.base: .PHONY
-	docker build --tag leefuzh/leef-2.base:latest leef.base
+leef-2.base: .PHONY
+	docker build --tag leefuzh/leef-2.base:latest leef-2.base
 
-leef.base.force: .PHONY
-	docker build --no-cache	--tag leefuzh/leef-2.base:latest leef.base
+leef-2.base.force: .PHONY
+	docker build --no-cache	--tag leefuzh/leef-2.base:latest leef-2.base
 
-build: leef
-leef: .PHONY
-	docker build --tag leefuzh/leef-2:latest leef
+build: leef-2
+leef-2: .PHONY
+	docker build --tag leefuzh/leef-2:latest leef-2
 	
-build.forc: leef.force
-leef.force: .PHONY
-	docker build --no-cache	--tag leefuzh/leef-2:latest leef
+build.forc: leef-2.force
+leef-2.force: .PHONY
+	docker build --no-cache	--tag leefuzh/leef-2:latest leef-2
 	
 #################################	
 ##### pull 					#####
@@ -120,25 +120,6 @@ run.leef.R: dirs
 ##### run pipeline 			#####
 #################################	
 
-pipeline.all: run.pipeline.all
-run.pipeline.all: dirs
-	docker run \
-	--rm \
-	-e PASSWORD=none \
-	\
-	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \	
-	\
-	-v ~/LEEF/0.raw.data:/home/rstudio/LEEF/0.raw.data \
-	-v ~/LEEF/1.pre-processed.data:/home/rstudio/LEEF/1.pre-processed.data \
-	-v ~/LEEF/2.extracted.data:/home/rstudio/LEEF/2.extracted.data/ \
-	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	--memory-swap=-1 \
-	-ti \
-	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline pipeline.all.yml
-
 
 pipeline.bemovi: run.pipeline.bemovi
 run.pipeline.bemovi: dirs
@@ -160,83 +141,18 @@ run.pipeline.bemovi: dirs
 	/home/rstudio/LEEF/pipeline/run.pipeline.bemovi $(ID)
 
 
-test.bemovi: dirs
-	docker run \
-	--rm \
-	-p 8787:8787 \
-	-e PASSWORD=none \
-	\
-	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
-	-v ~/LEEF/0.raw.data/$(BEMOVI):/home/rstudio/LEEF/0.raw.data/bemovi \
-	-v ~/LEEF/1.pre-processed.data/$(BEMOVI):/home/rstudio/LEEF/1.pre-processed.data/bemovi \
-	-v ~/LEEF/2.extracted.data/$(BEMOVI):/home/rstudio/LEEF/2.extracted.data/bemovi \
-	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	--memory-swap=-1 \
-	-ti \
-	leefuzh/leef \
-	bash
-	
-	
-pipeline.fast: run.pipeline.fast
-run.pipeline.fast: dirs
-	docker run \
-	--rm \
-	-e PASSWORD=none \
-	\
-	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
-	-v ~/LEEF/0.raw.data/conductivity:/home/rstudio/LEEF/0.raw.data/conductivity \
-	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
-	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
-	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
-	-v ~/LEEF/0.raw.data/o2meter:/home/rstudio/LEEF/0.raw.data/o2meter \
-	\
-	-v ~/LEEF/1.pre-processed.data/conductivity:/home/rstudio/LEEF/1.pre-processed.data/conductivity \
-	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
-	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
-	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
-	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
-	\
-	-v ~/LEEF/2.extracted.data/conductivity:/home/rstudio/LEEF/2.extracted.data/conductivity \
-	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
-	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
-	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
-	-v ~/LEEF/2.extracted.data/o2meter:/home/rstudio/LEEF/2.extracted.data/o2meter \
-	\
-	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	\
-	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	\
-	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	\
-	--memory-swap=-1 \
-	-ti \
-	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline.fast
-
 pipeline.conductivity: run.pipeline.conductivity
 run.pipeline.conductivity: dirs
 	docker run \
 	--rm \
 	-e PASSWORD=none \
-	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
 	-v ~/LEEF/0.raw.data/conductivity:/home/rstudio/LEEF/0.raw.data/conductivity \
-	\
 	-v ~/LEEF/1.pre-processed.data/conductivity:/home/rstudio/LEEF/1.pre-processed.data/conductivity \
-	\
 	-v ~/LEEF/2.extracted.data/conductivity:/home/rstudio/LEEF/2.extracted.data/conductivity \
-	\
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	\
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	\
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	\
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -248,21 +164,13 @@ run.pipeline.flowcam: dirs
 	docker run \
 	--rm \
 	-e PASSWORD=none \
-	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
 	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
-	\
 	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
-	\
 	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
-	\
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	\
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	\
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	\
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -273,21 +181,13 @@ run.pipeline.flowcytometer: dirs
 	docker run \
 	--rm \
 	-e PASSWORD=none \
-	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
 	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
-	\
 	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
-	\
 	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
-	\
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	\
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	\
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	\
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -298,21 +198,13 @@ run.pipeline.manualcount: dirs
 	docker run \
 	--rm \
 	-e PASSWORD=none \
-	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
 	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
-	\
 	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
-	\
 	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
-	\
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	\
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	\
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	\
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -323,21 +215,13 @@ run.pipeline.o2meter: dirs
 	docker run \
 	--rm \
 	-e PASSWORD=none \
-	\
 	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
 	-v ~/LEEF/0.raw.data/o2meter:/home/rstudio/LEEF/0.raw.data/o2meter \
-	\
 	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
-	\
 	-v ~/LEEF/2.extracted.data/o2meter:/home/rstudio/LEEF/2.extracted.data/o2meter \
-	\
 	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	\
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	\
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	\
 	--memory-swap=-1 \
 	-ti \
 	leefuzh/leef \
@@ -345,66 +229,6 @@ run.pipeline.o2meter: dirs
 	
 	
 
-pipeline.flowcam.extract: run.pipeline.flowcam.extract
-run.pipeline.flowcam.extract: dirs
-	docker run \
-	--rm \
-	-e PASSWORD=none \
-	\
-	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
-	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
-	\
-	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
-	\
-	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	\
-	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	\
-	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	\
-	--memory-swap=-1 \
-	-ti \
-	leefuzh/leef \
-	/home/rstudio/LEEF/pipeline/run.pipeline.flowcam.extract
-
-
-test.fast: dirs
-	docker run \
-	--rm \
-	-p 8787:8787 \
-	-e PASSWORD=none \
-	\
-	-v ~/LEEF/00.general.parameter:/home/rstudio/LEEF/00.general.parameter \
-	\
-	-v ~/LEEF/0.raw.data/conductivity:/home/rstudio/LEEF/0.raw.data/conductivity \
-	-v ~/LEEF/0.raw.data/flowcam:/home/rstudio/LEEF/0.raw.data/flowcam \
-	-v ~/LEEF/0.raw.data/flowcytometer:/home/rstudio/LEEF/0.raw.data/flowcytometer \
-	-v ~/LEEF/0.raw.data/manualcount:/home/rstudio/LEEF/0.raw.data/manualcount \
-	-v ~/LEEF/0.raw.data/o2meter:/home/rstudio/LEEF/0.raw.data/o2meter \
-	\
-	-v ~/LEEF/1.pre-processed.data/conductivity:/home/rstudio/LEEF/1.pre-processed.data/conductivity \
-	-v ~/LEEF/1.pre-processed.data/flowcam:/home/rstudio/LEEF/1.pre-processed.data/flowcam \
-	-v ~/LEEF/1.pre-processed.data/flowcytometer:/home/rstudio/LEEF/1.pre-processed.data/flowcytometer \
-	-v ~/LEEF/1.pre-processed.data/manualcount:/home/rstudio/LEEF/1.pre-processed.data/manualcount \
-	-v ~/LEEF/1.pre-processed.data/o2meter:/home/rstudio/LEEF/1.pre-processed.data/o2meter \
-	\
-	-v ~/LEEF/2.extracted.data/conductivity:/home/rstudio/LEEF/2.extracted.data/conductivity \
-	-v ~/LEEF/2.extracted.data/flowcam:/home/rstudio/LEEF/2.extracted.data/flowcam \
-	-v ~/LEEF/2.extracted.data/flowcytometer:/home/rstudio/LEEF/2.extracted.data/flowcytometer \
-	-v ~/LEEF/2.extracted.data/manualcount:/home/rstudio/LEEF/2.extracted.data/manualcount \
-	-v ~/LEEF/2.extracted.data/o2meter:/home/rstudio/LEEF/2.extracted.data/o2meter \
-	\
-	-v ~/LEEF/3.archived.data:/home/rstudio/LEEF/3.archived.data \
-	\
-	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
-	\
-	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
-	\
-	--memory-swap=-1 \
-	-ti \
-	leefuzh/leef \
-	bash
 
 #################################	
 ##### stop 					#####
@@ -424,7 +248,7 @@ start:
 ##### remove 				#####
 #################################	
 
-remove:r emove.leef.base remove.leef
+remove: remove.leef.base remove.leef
 remove.leef.base: stop
 	docker image rm leefuzh/leef.base
 

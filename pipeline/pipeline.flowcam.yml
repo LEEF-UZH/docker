@@ -39,7 +39,7 @@ measurement_packages:
 
   LEEF.measurement.flowcam:
     name: LEEF.measurement.flowcam
-    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages(('LEEF.measurement.flowcam')
+    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages(('LEEF.2.measurement.flowcam')
     RegisterCommand: LEEF.measurement.flowcam::register()
 
 
