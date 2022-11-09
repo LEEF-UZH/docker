@@ -7,7 +7,7 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ## ## conductivity ##########
 LF=./../LEEF/log.$TS.conductivity
-LFERR=$LF.error.log
+LFERROR=$LF.error.log
 LF=$LF.log
 # make run.pipeline.conductivity &> $LF
 make run.pipeline.conductivity > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)

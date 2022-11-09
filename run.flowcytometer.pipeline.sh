@@ -7,7 +7,7 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ## ## flowcytometer ##########
 LF=./../LEEF/log.$TS.flowcytometer
-LFERR=$LF.error.log
+LFERROR=$LF.error.log
 LF=$LF.log
 # make run.pipeline.flowcytometer &> $LF
 make run.pipeline.flowcytometer > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)

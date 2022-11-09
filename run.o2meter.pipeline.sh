@@ -7,7 +7,7 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ## ## o2meter ##########
 LF=./../LEEF/log.$TS.o2meter
-LFERR=$LF.error.log
+LFERROR=$LF.error.log
 LF=$LF.log
 # make run.pipeline.o2meter &> $LF
 make run.pipeline.o2meter > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)

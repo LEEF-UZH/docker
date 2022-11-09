@@ -7,7 +7,7 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ## ## flowcam ##########
 LF=./../LEEF/log.$TS.flowcam
-LFERR=$LF.error.log
+LFERROR=$LF.error.log
 LF=$LF.log
 # make run.pipeline.flowcam &> $LF
 make run.pipeline.flowcam > >(tee -a $LF) 2> >(tee -a $LFERROR >&2)

@@ -7,7 +7,7 @@ TS=$(date '+%Y-%m-%d--%H-%M-%S')
 ##
 ## ## bemovi.mag/.16 ###################
 LF=./../LEEF/log.$TS.bemovi.mag.16
-LFERR=$LF.error.log
+LFERROR=$LF.error.log
 LF=$LF.log
 #
 make run.pipeline.bemovi ID=mag.16 > >(tee -a $LF) 2> >(tee -a $LFERR >&2)
