@@ -1,6 +1,8 @@
 FROM rocker/rstudio:4.1.0
 
 
+## RUN DEBIAN_FRONTEND=noninteractive add-apt-repository -y ppa:cran/imagemagick
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
 	libxml2-dev \
@@ -26,6 +28,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
   libmariadb-dev \ 
   libharfbuzz-dev \
   libfribidi-dev \
+  libsodium-dev \
+  libmagick++-dev \
   \
   mc 
 	

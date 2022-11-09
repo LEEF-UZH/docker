@@ -36,7 +36,7 @@ build: leef-2
 leef-2: .PHONY
 	docker build --tag leefuzh/leef-2:latest leef-2
 	
-build.forc: leef-2.force
+build.force: leef-2.force
 leef-2.force: .PHONY
 	docker build --no-cache	--tag leefuzh/leef-2:latest leef-2
 	
@@ -46,7 +46,7 @@ leef-2.force: .PHONY
 
 update: pull
 pull:
-	docker pull leefuzh/leef
+	docker pull leefuzh/leef-2
 		
 #################################	
 ##### run	 				#####
@@ -58,7 +58,7 @@ run.leef.base:
 	-p 8787:8787 \
 	-e PASSWORD=none \
 	-ti \
-	leefuzh/leef
+	leefuzh/leef-2
 	
 rstudio: run.leef.rstudio
 run.leef.rstudio: dirs
@@ -76,7 +76,7 @@ run.leef.rstudio: dirs
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef 
+	leefuzh/leefleef-2 
 	
 bash: run.leef.bash
 run.leef.bash: dirs
@@ -94,7 +94,7 @@ run.leef.bash: dirs
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef \
+	leefuzh/leef-2 \
 	bash
 	
 R: run.leef.R
@@ -113,7 +113,7 @@ run.leef.R: dirs
 	-v ~/LEEF/9.backend:/home/rstudio/LEEF/9.backend \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef \
+	leefuzh/leef-2 \
 	R
 
 #################################	
@@ -137,7 +137,7 @@ run.pipeline.bemovi: dirs
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef \
+	leefuzh/leef-2 \
 	/home/rstudio/LEEF/pipeline/run.pipeline.bemovi $(ID)
 
 
@@ -155,7 +155,7 @@ run.pipeline.conductivity: dirs
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef \
+	leefuzh/leef-2 \
 	/home/rstudio/LEEF/pipeline/run.pipeline.conductivity
 
 
@@ -173,7 +173,7 @@ run.pipeline.flowcam: dirs
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef \
+	leefuzh/leef-2 \
 	/home/rstudio/LEEF/pipeline/run.pipeline.flowcam
 
 pipeline.flowcytometer: run.pipeline.flowcytometer
@@ -190,7 +190,7 @@ run.pipeline.flowcytometer: dirs
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef \
+	leefuzh/leef-2 \
 	/home/rstudio/LEEF/pipeline/run.pipeline.flowcytometer
 
 pipeline.manualcount: run.pipeline.manualcount
@@ -207,7 +207,7 @@ run.pipeline.manualcount: dirs
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef \
+	leefuzh/leef-2 \
 	/home/rstudio/LEEF/pipeline/run.pipeline.manualcount
 
 pipeline.o2meter: run.pipeline.o2meter
@@ -224,7 +224,7 @@ run.pipeline.o2meter: dirs
 	-v ~/LEEF_pipeline:/home/rstudio/LEEF/pipeline \
 	--memory-swap=-1 \
 	-ti \
-	leefuzh/leef \
+	leefuzh/leef-2 \
 	/home/rstudio/LEEF/pipeline/run.pipeline.o2meter
 	
 	
@@ -235,14 +235,14 @@ run.pipeline.o2meter: dirs
 #################################	
 
 stop:
-	docker stop leefuzh/leef
+	docker stop leefuzh/leef-2
 
 #################################	
 ##### start 				#####
 #################################	
 
 start:
-	docker start leefuzh/leef
+	docker start leefuzh/leef-2
 	
 #################################	
 ##### remove 				#####
@@ -250,10 +250,10 @@ start:
 
 remove: remove.leef.base remove.leef
 remove.leef.base: stop
-	docker image rm leefuzh/leef.base
+	docker image rm leefuzh/leef-2.base
 
 remove.leef: stop
-	docker image rm leefuzh/leef
+	docker image rm leefuzh/leef-2
 	
 #################################	
 ##### phony	 				#####
