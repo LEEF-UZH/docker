@@ -33,7 +33,7 @@ LEEF.2::init_LEEF(config_file = pipeline)
 LEEF.2::process(process = FALSE)
 
 message("\n########################################################\n")
-message("\narchiving raw data ...\n"
+message("\narchiving raw data ...\n")
 LEEF.2.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$raw,
   output = file.path(getOption("LEEF")$directories$archive, "raw")
