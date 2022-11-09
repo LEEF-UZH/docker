@@ -21,6 +21,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
   libsm6 \
   libice6 \
   xdg-utils \
+  libudunits2-dev \
+  libmariadbclient-dev \
+  libmariadb-client-lgpl-dev \
+  libharfbuzz-dev \
+  libfribidi-dev \
   \
   mc 
 	
