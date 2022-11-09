@@ -23,7 +23,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq \
   xdg-utils \
   libudunits2-dev \
   libmariadbclient-dev \
-  libmariadb-client-lgpl-dev \
+  libmariadb-dev \ 
   libharfbuzz-dev \
   libfribidi-dev \
   \
