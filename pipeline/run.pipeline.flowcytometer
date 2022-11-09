@@ -34,11 +34,11 @@ LEEF::process(process = FALSE)
 
 message("\n########################################################\n")
 message("\narchiving raw data ...\n"
-LEEF.archive.default::run_archive_none_subdir(
+LEEF.2.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$raw,
   output = file.path(getOption("LEEF")$directories$archive, "raw")
 )
-LEEF.archive.default::run_archive_none(
+LEEF.2.archive.default::run_archive_none(
   input = getOption("LEEF")$directories$general.parameter,
   output = file.path(getOption("LEEF")$directories$archive, "raw")
 )
@@ -53,7 +53,7 @@ message("\n########################################################\n")
 
 message("\n########################################################\n")
 message("\narchiving pre-processed data...\n")
-LEEF.archive.default::run_archive_none_subdir(
+LEEF.2.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$pre_processed,
   output = file.path(getOption("LEEF")$directories$archive, "pre_processed")
 )
@@ -70,7 +70,7 @@ message("\n########################################################\n")
 message("\narchiving extracted data ...\n")
 message("     ", getOption("LEEF")$directories$extracted)
 message("     ", file.path(getOption("LEEF")$directories$archive, "extracted"))
-LEEF.archive.default::run_archive_none_subdir(
+LEEF.2.archive.default::run_archive_none_subdir(
   input = getOption("LEEF")$directories$extracted,
   output = file.path(getOption("LEEF")$directories$archive, "extracted")
 )
@@ -87,7 +87,7 @@ message("\n########################################################\n")
 # message("\n########################################################\n")
 # message("\narchiving backend ...\n")
 # message("\nDISABLED\n")
-# # LEEF.archive.default::run_archive_none(
+# # LEEF.2.archive.default::run_archive_none(
 # #   input = getOption("LEEF")$directories$backend,
 # #   output = file.path(getOption("LEEF")$directories$archive, "backend_fast_only")
 # # )

@@ -36,10 +36,10 @@ directories:
 
 
 measurement_packages:
-  LEEF.measurement.bemovi:
-    name: LEEF.measurement.bemovi
-    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.measurement.bemovi')
-    RegisterCommand: LEEF.measurement.bemovi::tools_path(tools_path = '.'); LEEF.2.measurement.bemovi::register()
+  LEEF.2.measurement.bemovi:
+    name: LEEF.2.measurement.bemovi
+    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.2.measurement.bemovi')
+    RegisterCommand: LEEF.2.measurement.bemovi::tools_path(tools_path = '.'); LEEF.2.measurement.bemovi::register()
 
 
 # --------------------------------------------------------------------
@@ -52,10 +52,10 @@ measurement_packages:
 
 
 archive_packages:
-  LEEF.archive.default:
-    name: LEEF.archive.default
-    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.archive.default')
-    RegisterCommand: LEEF.archive.default::register(compression = "tar.gz_subdir")
+  LEEF.2.archive.default:
+    name: LEEF.2.archive.default
+    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.2.archive.default')
+    RegisterCommand: LEEF.2.archive.default::register(compression = "tar.gz_subdir")
 
 # --------------------------------------------------------------------
 # backend packages ()
@@ -70,10 +70,10 @@ archive_packages:
 
 
 backend_packages:
-  LEEF.backend.sqlite:
-    name: LEEF.backend.sqlite
-    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.backend.sqlite')
-    RegisterCommand: LEEF.backend.sqlite::register()
+  LEEF.2.backend.sqlite:
+    name: LEEF.2.backend.sqlite
+    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.2.backend.sqlite')
+    RegisterCommand: LEEF.2.backend.sqlite::register()
   # LEEF.backend.sqlite:
   #   name: LEEF.backend.sqlite
   #   InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.backend.sqlite')

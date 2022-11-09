@@ -3,7 +3,7 @@
 # General info regarding the processing
 
 
-name: LEEF.fast
+name: LEEF.flowcam
 description: LEEF Data from an long term experiment.
              Some more detaled info has to follow.
 maintainer: Rainer M. Krug <Rainer@uzh.ch>
@@ -37,10 +37,10 @@ directories:
 
 measurement_packages:
 
-  LEEF.measurement.flowcam:
-    name: LEEF.measurement.flowcam
+  LEEF.2.measurement.flowcam:
+    name: LEEF.2.measurement.flowcam
     InstallCommand: drat::addRepo('LEEF-UZH'); install.packages(('LEEF.2.measurement.flowcam')
-    RegisterCommand: LEEF.measurement.flowcam::register()
+    RegisterCommand: LEEF.2.measurement.flowcam::register()
 
 
 
@@ -54,10 +54,10 @@ measurement_packages:
 
 
 archive_packages:
-  LEEF.archive.default:
-    name: LEEF.archive.default
-    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.archive.default')
-    RegisterCommand: LEEF.archive.default::register(compression = "tar.gz_subdir")
+  LEEF.2.archive.default:
+    name: LEEF.2.archive.default
+    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.2.archive.default')
+    RegisterCommand: LEEF.2.archive.default::register(compression = "tar.gz_subdir")
 
 # --------------------------------------------------------------------
 # backend packages ()
@@ -72,10 +72,10 @@ archive_packages:
 
 
 backend_packages:
-  LEEF.backend.sqlite:
-    name: LEEF.backend.sqlite
-    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.backend.sqlite')
-    RegisterCommand: LEEF.backend.sqlite::register()
+  LEEF.2.backend.sqlite:
+    name: LEEF.2.backend.sqlite
+    InstallCommand: drat::addRepo('LEEF-UZH'); install.packages('LEEF.2.backend.sqlite')
+    RegisterCommand: LEEF.2.backend.sqlite::register()
 
 
 # --------------------------------------------------------------------
