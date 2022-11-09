@@ -122,7 +122,7 @@ RUN mkdir -p /home/rstudio/LEEF/tools \
 	&& tar -xf ffmpeg-release-amd64-static.tar.xz --wildcards --strip=1 */ffmpeg \
 	&& rm ./ffmpeg-release-amd64-static.tar.xz \
 	\
-	&& wget --no-verbose https://github.com/LEEF-UZH/docker/raw/leef-2/tools/ParticleLinker.jar
+	&& wget --no-verbose https://github.com/LEEF-UZH/LEEF.measurement.bemovi/raw/LEEF-2/inst/ParticleLinker/ParticleLinker.jar
 
 ##################################################
 ##################################################
