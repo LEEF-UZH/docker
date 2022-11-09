@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.1.0
+FROM rocker/rstudio:4.2.1
 
 
 ## RUN DEBIAN_FRONTEND=noninteractive add-apt-repository -y ppa:cran/imagemagick
