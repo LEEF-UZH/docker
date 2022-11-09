@@ -28,9 +28,9 @@ message(paste(pkgs, collapse = "\n"))
 message("\n########################################################\n")
 message("\n########################################################\n")
 
-LEEF::init_LEEF(config_file = pipeline)
+LEEF.2::init_LEEF(config_file = pipeline)
 
-LEEF::process(process = FALSE)
+LEEF.2::process(process = FALSE)
 
 message("\n########################################################\n")
 message("\narchiving raw data ...\n")
