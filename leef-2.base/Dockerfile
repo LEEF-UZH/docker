@@ -95,7 +95,7 @@ RUN install2.r -n 10 -r https://cloud.r-project.org/ --error \
 	
 ## Bioconductor packages
 
-RUN R -e "install.packages('BiocManager')"
+RUN R -e "install.packages('BiocManager')" 
 
 RUN R -e 'BiocManager::install("cytolib")'
 RUN  R -e 'BiocManager::install("flowCore")'  
