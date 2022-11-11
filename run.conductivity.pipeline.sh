@@ -16,9 +16,9 @@ echo "##################################" >> $LF
 echo "## BEGIN: " $TS "##" >> $LF
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
 echo "##################################" >> $LF
-if [ -s $LFERROR ]
+if [ ! -s $LFERROR ]
 then
-        rm -f $LFERROR
+	rm -f $LFERROR
 fi
 ##
 sudo chown -R ubuntu:ubuntu ./../LEEF/00.*

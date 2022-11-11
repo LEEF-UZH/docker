@@ -16,7 +16,7 @@ echo "##################################" >> $LF
 echo "## BEGIN: " $TS "##" >> $LF
 echo "## END:   " $(date '+%Y-%m-%d--%H-%M-%S')  "##" >> $LF
 echo "##################################" >> $LF
-if [ -s $LFERROR ]
+if [ ! -s $LFERROR ]
 then
         rm -f $LFERROR
 fi
